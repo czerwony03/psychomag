@@ -11,4 +11,9 @@ class Test extends Model
     ];
 
     public $timestamps = false;
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class,'user_test');
+    }
 }
