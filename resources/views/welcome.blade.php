@@ -87,9 +87,10 @@
                 <div class="links">
                     Stroop:<br/>
                     <a href="{{ url('stroop1') }}">LVL 1</a>
+                    <a href="{{ url('stroop2') }}">LVL 2</a>
                     <a href="{{ url('stroop3') }}">LVL 3</a>
                     <br/>TMT:<br/>
-                    <a href="{{ url('tmt') }}">Test TMT A</a>
+                    <a href="{{ url('tmt') }}">Test A</a>
                 </div>
             </div>
         </div>

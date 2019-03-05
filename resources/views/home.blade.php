@@ -17,8 +17,18 @@
                         Logowanie poprawne!<br/>
                             Testy:
                             <ul>
-                                <li><a href="{{ url('stroop') }}">Test Stroop'a</a></li>
-                                <li><a href="{{ url('tmt') }}">Test TMT A</a></li>
+                                <li>Stroop:
+                                    <ul>
+                                        <li><a href="{{ url('stroop1') }}">LVL 1</a></li>
+                                        <li><a href="{{ url('stroop2') }}">LVL 2</a></li>
+                                        <li><a href="{{ url('stroop3') }}">LVL 3</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    TMT:
+                                    <ul>
+                                        <li><a href="{{ url('tmt') }}">Test A</a></li>
+                                    </ul>
                             </ul>
                     </div>
                 </div>
