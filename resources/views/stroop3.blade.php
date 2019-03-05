@@ -39,9 +39,11 @@
             attempts = null,
             results = [],
             errors = null,
-            maxAttempts = 10,
+            maxTime = 60,
             minTimeout = 1000,
-            maxTimeout = 2000;
+            maxTimeout = 2000,
+            currentTimeout,
+            testTimeout;
 
         const colorStrings = [
             "ZIELONY",
@@ -73,26 +75,48 @@
             timeStart = null;
             attempts = 0;
             results = [];
-            errors = 0  ;
+            errors = 0;
+            testTimeout=null;
+            currentTimeout=null;
             clearMsg();
             $('#stroop-title').addClass('live');
 
+            testTimeout = setTimeout(testTimeoutFinish, maxTime*1000);
             setNextTimeout();
         }
+        function testTimeoutFinish() {
+            if(currentTimeout) {
+                clearTimeout(currentTimeout);
+            }
+            currentTimeout = null;
+            if(testTimeout) {
+                clearTimeout(testTimeout);
+            }
+            testTimeout = null;
+            testStop();
+        }
         function testStop() {
+            if(currentTimeout) {
+                clearTimeout(currentTimeout);
+            }
+            currentTimeout = null;
             console.log('Test STOP');
             testStatus = false;
             $('#stroop-title').removeClass('live');
             toggleButtons();
             var msg = $("#stroop-test-msg");
-            if(attempts<maxAttempts) {
+            if(testTimeout) {
+                if(testTimeout) {
+                    clearTimeout(testTimeout);
+                }
+                testTimeout = null;
                 msg.text('Test przerwany. Naciśnij start, aby spróbować ponownie!').css('color','');
             } else {
                 var list = msg.css('color','').append('Wyniki:<br/><ul></ul>').find('ul');
                 results.forEach(function (result) {
                     list.append('<li>' + trueFalse(result[0]) + ' ' + result[1] + '</li>');
                 });
-                msg.append('<br/>Błędnych odpowiedzi: ' + errors + '/' + maxAttempts);
+                msg.append('<br/>Błędnych odpowiedzi: ' + errors + '/' + attempts);
 
                 let timeSum = 0;
                 results.forEach(function(res) {
@@ -123,14 +147,10 @@
                 errors++;
             }
 
-            if(attempts < maxAttempts) {
-                setNextTimeout();
-            } else {
-                testStop();
-            }
+            setNextTimeout();
         }
         function setNextTimeout() {
-            setTimeout(showAttempt, randomInt(minTimeout,maxTimeout));
+            currentTimeout = setTimeout(showAttempt, randomInt(minTimeout,maxTimeout));
         }
         function showText(colorStringIndex, styleColor) {
             $('#stroop-test-msg').css('color',styleColor).text(colorStrings[colorStringIndex]);
