@@ -17,3 +17,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/stroop', 'HomeController@stroop')->name('stroop');
+Route::get('/tmt', 'HomeController@tmt')->name('tmt');

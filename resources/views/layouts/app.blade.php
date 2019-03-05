@@ -9,16 +9,12 @@
 
     <title>{{ config('app.name') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app" class="h-100">
@@ -78,5 +74,8 @@
         </main>
     </div>
 </body>
+
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
 @yield('javascript')
 </html>

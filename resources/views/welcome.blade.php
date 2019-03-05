@@ -86,6 +86,7 @@
 
                 <div class="links">
                     <a href="{{ url('stroop') }}">Test Stroop'a</a>
+                    <a href="{{ url('tmt') }}">Test TMT A</a>
                 </div>
             </div>
         </div>

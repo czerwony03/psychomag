@@ -23,5 +23,18 @@
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0"
+    },
+    "dependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.3.4",
+        "@orcatech/react-neuropsych-trails": "0.0.7",
+        "react-modal": "^3.8.1"
+    },
+    "babel": {
+        "presets": [
+            "@babel/preset-react"
+        ],
+        "plugins": [
+            "@babel/plugin-proposal-class-properties"
+        ]
     }
 }
