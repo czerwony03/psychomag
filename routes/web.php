@@ -17,5 +17,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/stroop1', 'HomeController@stroop1')->name('stroop1');
+Route::get('/stroop2', 'HomeController@stroop2')->name('stroop2');
 Route::get('/stroop3', 'HomeController@stroop3')->name('stroop3');
 Route::get('/tmt', 'HomeController@tmt')->name('tmt');

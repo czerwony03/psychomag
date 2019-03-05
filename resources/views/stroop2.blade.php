@@ -4,21 +4,19 @@
     <div class="container h-100">
         <div class="row justify-content-center h-100">
             <div class="col-md-12">
-                <div class="card bg-dark text-white" style="height:100%;">
+                <div class="card" style="height:100%;">
                     <div class="card-header">
-                        <span id="stroop-title">Test #1 - Stroop LVL3</span>
+                        <span id="stroop-title">Test #1 - Stroop LVL2</span>
                     </div>
 
                     <div class="card-body d-flex justify-content-around align-items-center" id="stroop-test-box">
-                        <div class="">
-                            <h1 id="stroop-test-msg">Naciśnij start aby rozpocząć test!</h1>
-                        </div>
+                        <h1 id="stroop-test-msg">Naciśnij start aby rozpocząć test!</h1>
                     </div>
 
                     <div class="card-footer d-flex justify-content-around align-items-center">
                         <span style="color:green"><strong>[Z]</strong>ielony</span>
                         <span style="color:red"><strong>[C]</strong>zerwony</span>
-                        <span style="color:white"><strong>[B]</strong>iały</span>
+                        <span style="color:black"><strong>[B]</strong>iały</span>
                         <span style="color:dodgerblue"><strong>[N]</strong>iebieski</span>
                         <span>
                             <button class="btn btn-success" id="stroop-start">START</button>
@@ -45,12 +43,6 @@
             currentTimeout,
             testTimeout;
 
-        const colorStrings = [
-            "ZIELONY",
-            "CZERWONY",
-            "BIAŁY",
-            "NIEBIESKI"
-        ];
         const colorCss = [
             "green",
             "red",
@@ -112,7 +104,7 @@
                 testTimeout = null;
                 msg.text('Test przerwany. Naciśnij start, aby spróbować ponownie!').css('color','');
             } else {
-                var list = msg.css('color','').append('Wyniki:<br/><ul></ul>').find('ul');
+                var list = msg.css({'background-color':'','height':'','width':''}).append('Wyniki:<br/><ul></ul>').find('ul');
                 results.forEach(function (result) {
                     list.append('<li>' + trueFalse(result[0]) + ' ' + result[1] + '</li>');
                 });
@@ -127,11 +119,11 @@
         }
         function showAttempt() {
             console.log('Attempt SHOW');
-            let colorStringIndex = Math.floor(Math.random()*colorStrings.length);
+            let colorBlockIndex = Math.floor(Math.random()*colorCss.length);
             let colorCssIndex = Math.floor(Math.random()*colorCss.length);
             nextAnswer = colorCss[colorCssIndex];
             timeStart = new Date().getTime();
-            showText(colorStringIndex,nextAnswer);
+            showText(colorBlockIndex,nextAnswer);
         }
         function attemptResult(status) {
             console.log('Attempt ANSWER');
@@ -153,10 +145,10 @@
             currentTimeout = setTimeout(showAttempt, randomInt(minTimeout,maxTimeout));
         }
         function showText(colorStringIndex, styleColor) {
-            $('#stroop-test-msg').css('color',styleColor).text(colorStrings[colorStringIndex]);
+            $('#stroop-test-msg').css({'background-color':styleColor,'height':'50%','width':'50%'});
         }
         function clearMsg() {
-            $('#stroop-test-msg').text('');
+            $('#stroop-test-msg').text('').css({'background-color':'','height':'','width':''});
         }
         function randomInt(min,max) {
             return Math.floor(Math.random()*(max-min+1)+min);
@@ -182,9 +174,9 @@
                 Object.keys(colorButtons).map(function(indexMap) {
                     let index = parseInt(indexMap,10);
                     if(index === key) {
-                        if(nextAnswer && nextAnswer === colorCss[colorButtons[index]]) {
+                        if(nextAnswer !== undefined && nextAnswer !== null  && nextAnswer === colorCss[colorButtons[index]]) {
                             attemptResult(true);
-                        } else if(nextAnswer) {
+                        } else if(nextAnswer !== undefined && nextAnswer !== null) {
                             attemptResult(false);
                         }
                     }
