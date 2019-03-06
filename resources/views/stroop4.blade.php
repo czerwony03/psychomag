@@ -10,11 +10,9 @@
                     </div>
 
                     <div class="card-body d-flex justify-content-around align-items-center">
-                        <div style="width:70%; align-content:center;">
-                            <h1 id="stroop-test-msg" class="stroop4-test-msg d-flex justify-content-around align-items-center">Naciśnij start aby rozpocząć test!</h1>
-                            <div id="stroop-test-box" class="d-flex justify-content-around align-items-center">
-                                <h2>test</h2>
-                            </div>
+                        <div class="d-flex flex-column justify-content-around align-items-center" style="width:50%;height:50%;">
+                            <h1 id="stroop-test-msg" class="h-100 w-100" style="text-align: center;">Naciśnij start aby rozpocząć test!</h1>
+                            <h1 id="stroop-test-boxmsg" class="h-100 w-100" style="text-align: center; display:none;">-</h1>
                         </div>
                     </div>
 
@@ -83,6 +81,7 @@
             currentTimeout=null;
             clearMsg();
             $('#stroop-title').addClass('live');
+            $('#stroop-test-boxmsg').css({'display':'block'});
 
             testTimeout = setTimeout(testTimeoutFinish, maxTime*1000);
             setNextTimeout();
@@ -106,6 +105,7 @@
             console.log('Test STOP');
             testStatus = false;
             $('#stroop-title').removeClass('live');
+            $('#stroop-test-boxmsg').css({'display':'none'});
             toggleButtons();
             var msg = $("#stroop-test-msg");
             if(testTimeout) {
@@ -133,9 +133,16 @@
             console.log('Attempt SHOW');
             let colorStringIndex = Math.floor(Math.random()*colorStrings.length);
             let colorCssIndex = Math.floor(Math.random()*colorCss.length);
-            nextAnswer = colorCss[colorCssIndex];
+            let inBoxOrNot = Math.random() >= 0.5;
             timeStart = new Date().getTime();
-            showText(colorStringIndex,nextAnswer);
+            console.log(inBoxOrNot);
+            if(inBoxOrNot){
+                $('#stroop-test-boxmsg').css('color',colorCss[colorCssIndex]).text(colorStrings[colorStringIndex]);
+                nextAnswer = colorCss[colorStringIndex];
+            } else {
+                $('#stroop-test-msg').css('color',colorCss[colorCssIndex]).text(colorStrings[colorStringIndex]);
+                nextAnswer = colorCss[colorCssIndex];
+            }
         }
         function attemptResult(status) {
             console.log('Attempt ANSWER');
@@ -156,11 +163,9 @@
         function setNextTimeout() {
             currentTimeout = setTimeout(showAttempt, randomInt(minTimeout,maxTimeout));
         }
-        function showText(colorStringIndex, styleColor) {
-            $('#stroop-test-msg').css('color',styleColor).text(colorStrings[colorStringIndex]);
-        }
         function clearMsg() {
-            $('#stroop-test-msg').html("&nbsp;");
+            $('#stroop-test-msg').text('');
+            $('#stroop-test-boxmsg').text('');
         }
         function randomInt(min,max) {
             return Math.floor(Math.random()*(max-min+1)+min);
