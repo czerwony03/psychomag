@@ -94622,9 +94622,12 @@ if (token) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _orcatech_react_neuropsych_trails__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @orcatech/react-neuropsych-trails */ "./node_modules/@orcatech/react-neuropsych-trails/dist/react-neuropsych-trails.js");
 /* harmony import */ var _orcatech_react_neuropsych_trails__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_orcatech_react_neuropsych_trails__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Trails_A12V1__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Trails/A12V1 */ "./resources/js/components/Trails/A12V1.js");
-/* harmony import */ var _Trails_A12V2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Trails/A12V2 */ "./resources/js/components/Trails/A12V2.js");
-/* harmony import */ var _Trails_A12V3__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Trails/A12V3 */ "./resources/js/components/Trails/A12V3.js");
+/* harmony import */ var _Trails_A25V1__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Trails/A25V1 */ "./resources/js/components/Trails/A25V1.js");
+/* harmony import */ var _Trails_A25V2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Trails/A25V2 */ "./resources/js/components/Trails/A25V2.js");
+/* harmony import */ var _Trails_A25V3__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Trails/A25V3 */ "./resources/js/components/Trails/A25V3.js");
+/* harmony import */ var _Trails_B13ALV1__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Trails/B13ALV1 */ "./resources/js/components/Trails/B13ALV1.js");
+/* harmony import */ var _Trails_B13ALV2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Trails/B13ALV2 */ "./resources/js/components/Trails/B13ALV2.js");
+/* harmony import */ var _Trails_B13ALV3__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Trails/B13ALV3 */ "./resources/js/components/Trails/B13ALV3.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -94640,6 +94643,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
 
 
 
@@ -94666,17 +94672,26 @@ function (_Trails) {
 
     _defineProperty(_assertThisInitialized(_this), "trail", function () {
       switch (_this.props.part) {
-        case "A12V1":
-          return _Trails_A12V1__WEBPACK_IMPORTED_MODULE_1__["default"];
+        case "A25V1":
+          return _Trails_A25V1__WEBPACK_IMPORTED_MODULE_1__["default"];
 
-        case "A12V2":
-          return _Trails_A12V2__WEBPACK_IMPORTED_MODULE_2__["default"];
+        case "A25V2":
+          return _Trails_A25V2__WEBPACK_IMPORTED_MODULE_2__["default"];
 
-        case "A12V3":
-          return _Trails_A12V3__WEBPACK_IMPORTED_MODULE_3__["default"];
+        case "A25V3":
+          return _Trails_A25V3__WEBPACK_IMPORTED_MODULE_3__["default"];
+
+        case "B13ALV1":
+          return _Trails_B13ALV1__WEBPACK_IMPORTED_MODULE_4__["default"];
+
+        case "B13ALV2":
+          return _Trails_B13ALV2__WEBPACK_IMPORTED_MODULE_6__["default"];
+
+        case "B13ALV3":
+          return _Trails_B13ALV3__WEBPACK_IMPORTED_MODULE_7__["default"];
 
         default:
-          return _Trails_A12V1__WEBPACK_IMPORTED_MODULE_1__["default"];
+          return _Trails_A25V1__WEBPACK_IMPORTED_MODULE_1__["default"];
       }
     });
 
@@ -94743,8 +94758,11 @@ var customStyles = {
     transform: 'translate(-50%, -50%)'
   }
 };
-var trails = ["A12V1", "A12V2", "A12V3"];
-react_modal__WEBPACK_IMPORTED_MODULE_3___default.a.setAppElement('#tmttest');
+var tmttest = document.getElementById("tmttest");
+
+if (tmttest) {
+  react_modal__WEBPACK_IMPORTED_MODULE_3___default.a.setAppElement('#tmttest');
+}
 
 var TMT =
 /*#__PURE__*/
@@ -94877,12 +94895,12 @@ function (_React$Component) {
         onAfterOpen: this.afterOpenModal,
         onRequestClose: this.closeModal,
         style: customStyles,
-        contentLabel: "Wyniki TMT A"
+        contentLabel: "Wyniki TMT A" + this.props.ver
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", {
         ref: function ref(subtitle) {
           return _this2.subtitle = subtitle;
         }
-      }, "Wyniki testu TMT A"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, this.state.modalIsOpen && this.renderResult()), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+      }, "Wyniki testu TMT ", this.props.ver), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, this.state.modalIsOpen && this.renderResult()), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         className: "btn btn-danger",
         onClick: this.closeModal
       }, "Zamknij")));
@@ -94893,19 +94911,32 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
 
 _defineProperty(TMT, "propTypes", {
-  part: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string.isRequired
+  part: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string.isRequired,
+  ver: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string.isRequired
 });
 
 /* harmony default export */ __webpack_exports__["default"] = (TMT);
-react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(TMT, {
-  part: trails[Math.floor(Math.random() * trails.length)]
-}), document.getElementById('tmttest'));
+
+if (tmttest) {
+  var trails = [];
+
+  if (tmttest.dataset.ver === 'A') {
+    trails = ["A25V1", "A25V2", "A25V3"];
+  } else if (tmttest.dataset.ver === 'B') {
+    trails = ["B13ALV1", "B13ALV2", "B13ALV3"];
+  }
+
+  react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(TMT, {
+    ver: tmttest.dataset.ver,
+    part: trails[Math.floor(Math.random() * trails.length)]
+  }), document.getElementById('tmttest'));
+}
 
 /***/ }),
 
-/***/ "./resources/js/components/Trails/A12V1.js":
+/***/ "./resources/js/components/Trails/A25V1.js":
 /*!*************************************************!*\
-  !*** ./resources/js/components/Trails/A12V1.js ***!
+  !*** ./resources/js/components/Trails/A25V1.js ***!
   \*************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -95021,9 +95052,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Trails/A12V2.js":
+/***/ "./resources/js/components/Trails/A25V2.js":
 /*!*************************************************!*\
-  !*** ./resources/js/components/Trails/A12V2.js ***!
+  !*** ./resources/js/components/Trails/A25V2.js ***!
   \*************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -95139,9 +95170,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Trails/A12V3.js":
+/***/ "./resources/js/components/Trails/A25V3.js":
 /*!*************************************************!*\
-  !*** ./resources/js/components/Trails/A12V3.js ***!
+  !*** ./resources/js/components/Trails/A25V3.js ***!
   \*************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -95252,6 +95283,360 @@ __webpack_require__.r(__webpack_exports__);
     "x": 341,
     "y": 340,
     "text": "25"
+  }]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/Trails/B13ALV1.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/Trails/B13ALV1.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  "width": 535,
+  "height": 465,
+  "diameter": 44,
+  "tokens": [{
+    "x": 332,
+    "y": 263,
+    "text": "1"
+  }, {
+    "x": 254,
+    "y": 341,
+    "text": "A"
+  }, {
+    "x": 384,
+    "y": 340,
+    "text": "2"
+  }, {
+    "x": 394,
+    "y": 36,
+    "text": "B"
+  }, {
+    "x": 245,
+    "y": 111,
+    "text": "3"
+  }, {
+    "x": 315,
+    "y": 178,
+    "text": "C"
+  }, {
+    "x": 219,
+    "y": 219,
+    "text": "4"
+  }, {
+    "x": 101,
+    "y": 333,
+    "text": "D"
+  }, {
+    "x": 125,
+    "y": 393,
+    "text": "5"
+  }, {
+    "x": 186,
+    "y": 332,
+    "text": "E"
+  }, {
+    "x": 244,
+    "y": 410,
+    "text": "6"
+  }, {
+    "x": 38,
+    "y": 418,
+    "text": "F"
+  }, {
+    "x": 38,
+    "y": 370,
+    "text": "7"
+  }, {
+    "x": 78,
+    "y": 438,
+    "text": "G"
+  }, {
+    "x": 38,
+    "y": 320,
+    "text": "8"
+  }, {
+    "x": 101,
+    "y": 280,
+    "text": "H"
+  }, {
+    "x": 151,
+    "y": 280,
+    "text": "9"
+  }, {
+    "x": 101,
+    "y": 200,
+    "text": "I"
+  }, {
+    "x": 151,
+    "y": 230,
+    "text": "10"
+  }, {
+    "x": 151,
+    "y": 130,
+    "text": "J"
+  }, {
+    "x": 51,
+    "y": 130,
+    "text": "11"
+  }, {
+    "x": 51,
+    "y": 180,
+    "text": "K"
+  }, {
+    "x": 121,
+    "y": 100,
+    "text": "12"
+  }, {
+    "x": 181,
+    "y": 70,
+    "text": "L"
+  }, {
+    "x": 261,
+    "y": 30,
+    "text": "13"
+  }]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/Trails/B13ALV2.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/Trails/B13ALV2.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  "width": 535,
+  "height": 465,
+  "diameter": 44,
+  "tokens": [{
+    "x": 332,
+    "y": 263,
+    "text": "1"
+  }, {
+    "x": 354,
+    "y": 341,
+    "text": "A"
+  }, {
+    "x": 216,
+    "y": 332,
+    "text": "2"
+  }, {
+    "x": 354,
+    "y": 390,
+    "text": "B"
+  }, {
+    "x": 119,
+    "y": 119,
+    "text": "3"
+  }, {
+    "x": 394,
+    "y": 36,
+    "text": "C"
+  }, {
+    "x": 245,
+    "y": 111,
+    "text": "4"
+  }, {
+    "x": 315,
+    "y": 178,
+    "text": "D"
+  }, {
+    "x": 101,
+    "y": 333,
+    "text": "5"
+  }, {
+    "x": 125,
+    "y": 293,
+    "text": "E"
+  }, {
+    "x": 244,
+    "y": 410,
+    "text": "6"
+  }, {
+    "x": 38,
+    "y": 218,
+    "text": "F"
+  }, {
+    "x": 88,
+    "y": 218,
+    "text": "7"
+  }, {
+    "x": 138,
+    "y": 158,
+    "text": "G"
+  }, {
+    "x": 38,
+    "y": 138,
+    "text": "8"
+  }, {
+    "x": 98,
+    "y": 48,
+    "text": "H"
+  }, {
+    "x": 158,
+    "y": 78,
+    "text": "9"
+  }, {
+    "x": 208,
+    "y": 28,
+    "text": "I"
+  }, {
+    "x": 245,
+    "y": 161,
+    "text": "10"
+  }, {
+    "x": 205,
+    "y": 201,
+    "text": "J"
+  }, {
+    "x": 365,
+    "y": 108,
+    "text": "11"
+  }, {
+    "x": 405,
+    "y": 180,
+    "text": "K"
+  }, {
+    "x": 445,
+    "y": 280,
+    "text": "12"
+  }, {
+    "x": 400,
+    "y": 380,
+    "text": "L"
+  }, {
+    "x": 430,
+    "y": 220,
+    "text": "13"
+  }]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/Trails/B13ALV3.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/Trails/B13ALV3.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  "width": 535,
+  "height": 465,
+  "diameter": 44,
+  "tokens": [{
+    "x": 52,
+    "y": 53,
+    "text": "1"
+  }, {
+    "x": 104,
+    "y": 30,
+    "text": "A"
+  }, {
+    "x": 216,
+    "y": 20,
+    "text": "2"
+  }, {
+    "x": 354,
+    "y": 390,
+    "text": "B"
+  }, {
+    "x": 119,
+    "y": 119,
+    "text": "3"
+  }, {
+    "x": 394,
+    "y": 236,
+    "text": "C"
+  }, {
+    "x": 415,
+    "y": 111,
+    "text": "4"
+  }, {
+    "x": 315,
+    "y": 78,
+    "text": "D"
+  }, {
+    "x": 201,
+    "y": 253,
+    "text": "5"
+  }, {
+    "x": 125,
+    "y": 333,
+    "text": "E"
+  }, {
+    "x": 244,
+    "y": 410,
+    "text": "6"
+  }, {
+    "x": 38,
+    "y": 218,
+    "text": "F"
+  }, {
+    "x": 38,
+    "y": 370,
+    "text": "7"
+  }, {
+    "x": 78,
+    "y": 438,
+    "text": "G"
+  }, {
+    "x": 38,
+    "y": 320,
+    "text": "8"
+  }, {
+    "x": 101,
+    "y": 280,
+    "text": "H"
+  }, {
+    "x": 151,
+    "y": 280,
+    "text": "9"
+  }, {
+    "x": 101,
+    "y": 200,
+    "text": "I"
+  }, {
+    "x": 181,
+    "y": 130,
+    "text": "10"
+  }, {
+    "x": 221,
+    "y": 180,
+    "text": "J"
+  }, {
+    "x": 281,
+    "y": 130,
+    "text": "11"
+  }, {
+    "x": 261,
+    "y": 260,
+    "text": "K"
+  }, {
+    "x": 321,
+    "y": 220,
+    "text": "12"
+  }, {
+    "x": 421,
+    "y": 280,
+    "text": "L"
+  }, {
+    "x": 341,
+    "y": 340,
+    "text": "13"
   }]
 });
 

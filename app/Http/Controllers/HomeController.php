@@ -51,7 +51,11 @@ class HomeController extends Controller
         return view('stroop4');
     }
 
-    public function tmt() {
-        return view('tmt');
+    public function tmtA() {
+        return view('tmt',["ver"=>"A"]);
+    }
+
+    public function tmtB() {
+        return view('tmt',["ver"=>"B"]);
     }
 }

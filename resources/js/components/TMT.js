@@ -14,18 +14,15 @@ const customStyles = {
         transform             : 'translate(-50%, -50%)'
     }
 };
-
-const trails = [
-    "A12V1",
-    "A12V2",
-    "A12V3",
-];
-
-Modal.setAppElement('#tmttest');
+const tmttest = document.getElementById("tmttest");
+if(tmttest) {
+    Modal.setAppElement('#tmttest');
+}
 
 class TMT extends React.Component {
     static propTypes = {
         part: PropTypes.string.isRequired,
+        ver: PropTypes.string.isRequired
     };
 
     state = {
@@ -134,9 +131,9 @@ class TMT extends React.Component {
                 onAfterOpen={this.afterOpenModal}
                 onRequestClose={this.closeModal}
                 style={customStyles}
-                contentLabel="Wyniki TMT A"
+                contentLabel={"Wyniki TMT A" + this.props.ver}
             >
-                <h2 ref={subtitle => this.subtitle = subtitle}>Wyniki testu TMT A</h2>
+                <h2 ref={subtitle => this.subtitle = subtitle}>Wyniki testu TMT {this.props.ver}</h2>
                 <div>
                     {
                         this.state.modalIsOpen && this.renderResult()
@@ -150,4 +147,20 @@ class TMT extends React.Component {
 
 export default (TMT);
 
-ReactDOM.render(<TMT part={trails[Math.floor(Math.random()*trails.length)]}/>, document.getElementById('tmttest'));
+if(tmttest) {
+    let trails = [];
+    if(tmttest.dataset.ver === 'A') {
+        trails = [
+            "A25V1",
+            "A25V2",
+            "A25V3",
+        ];
+    } else if(tmttest.dataset.ver === 'B') {
+        trails = [
+            "B13ALV1",
+            "B13ALV2",
+            "B13ALV3",
+        ];
+    }
+    ReactDOM.render(<TMT ver={tmttest.dataset.ver} part={trails[Math.floor(Math.random() * trails.length)]}/>, document.getElementById('tmttest'));
+}

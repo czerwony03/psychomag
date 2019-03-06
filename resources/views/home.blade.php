@@ -28,7 +28,8 @@
                                 <li>
                                     TMT:
                                     <ul>
-                                        <li><a href="{{ url('tmt') }}">Test A</a></li>
+                                        <li><a href="{{ url('tmtA') }}">Test A</a></li>
+                                        <li><a href="{{ url('tmtB') }}">Test B</a></li>
                                     </ul>
                             </ul>
                     </div>
