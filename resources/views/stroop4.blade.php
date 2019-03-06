@@ -4,21 +4,24 @@
     <div class="container h-100">
         <div class="row justify-content-center h-100">
             <div class="col-md-12">
-                <div class="card" style="height:100%;">
+                <div class="card bg-dark text-white" style="height:100%;">
                     <div class="card-header">
-                        <span id="stroop-title">Test #1 - Stroop LVL1</span>
+                        <span id="stroop-title">Test #1 - Stroop LVL4</span>
                     </div>
 
                     <div class="card-body d-flex justify-content-around align-items-center">
-                        <div class="">
-                            <h1 id="stroop-test-msg">Naciśnij start aby rozpocząć test!</h1>
+                        <div style="width:70%; align-content:center;">
+                            <h1 id="stroop-test-msg" class="stroop4-test-msg d-flex justify-content-around align-items-center">Naciśnij start aby rozpocząć test!</h1>
+                            <div id="stroop-test-box" class="d-flex justify-content-around align-items-center">
+                                <h2>test</h2>
+                            </div>
                         </div>
                     </div>
 
                     <div class="card-footer d-flex justify-content-around align-items-center">
                         <span style="color:green"><strong>[Z]</strong>ielony</span>
                         <span style="color:red"><strong>[C]</strong>zerwony</span>
-                        <span style="color:black"><strong>[B]</strong>iały</span>
+                        <span style="color:white"><strong>[B]</strong>iały</span>
                         <span style="color:dodgerblue"><strong>[N]</strong>iebieski</span>
                         <span>
                             <button class="btn btn-success" id="stroop-start">START</button>
@@ -51,6 +54,12 @@
             "BIAŁY",
             "NIEBIESKI"
         ];
+        const colorCss = [
+            "green",
+            "red",
+            "white",
+            "blue"
+        ];
         const colorButtons = {
             122:    0, // Z
             90:     0, // z
@@ -79,6 +88,10 @@
             setNextTimeout();
         }
         function testTimeoutFinish() {
+            if(currentTimeout) {
+                clearTimeout(currentTimeout);
+            }
+            currentTimeout = null;
             if(testTimeout) {
                 clearTimeout(testTimeout);
             }
@@ -119,9 +132,10 @@
         function showAttempt() {
             console.log('Attempt SHOW');
             let colorStringIndex = Math.floor(Math.random()*colorStrings.length);
-            nextAnswer = colorStringIndex;
+            let colorCssIndex = Math.floor(Math.random()*colorCss.length);
+            nextAnswer = colorCss[colorCssIndex];
             timeStart = new Date().getTime();
-            showText(colorStringIndex);
+            showText(colorStringIndex,nextAnswer);
         }
         function attemptResult(status) {
             console.log('Attempt ANSWER');
@@ -142,11 +156,11 @@
         function setNextTimeout() {
             currentTimeout = setTimeout(showAttempt, randomInt(minTimeout,maxTimeout));
         }
-        function showText(colorStringIndex) {
-            $('#stroop-test-msg').text(colorStrings[colorStringIndex]);
+        function showText(colorStringIndex, styleColor) {
+            $('#stroop-test-msg').css('color',styleColor).text(colorStrings[colorStringIndex]);
         }
         function clearMsg() {
-            $('#stroop-test-msg').text('');
+            $('#stroop-test-msg').html("&nbsp;");
         }
         function randomInt(min,max) {
             return Math.floor(Math.random()*(max-min+1)+min);
@@ -172,10 +186,9 @@
                 Object.keys(colorButtons).map(function(indexMap) {
                     let index = parseInt(indexMap,10);
                     if(index === key) {
-                        console.log('pasuje');
-                        if(nextAnswer !== undefined && nextAnswer !== null && nextAnswer === colorButtons[index]) {
+                        if(nextAnswer && nextAnswer === colorCss[colorButtons[index]]) {
                             attemptResult(true);
-                        } else if(nextAnswer !== undefined && nextAnswer !== null) {
+                        } else if(nextAnswer) {
                             attemptResult(false);
                         }
                     }

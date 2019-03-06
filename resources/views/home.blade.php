@@ -22,6 +22,7 @@
                                         <li><a href="{{ url('stroop1') }}">LVL 1</a></li>
                                         <li><a href="{{ url('stroop2') }}">LVL 2</a></li>
                                         <li><a href="{{ url('stroop3') }}">LVL 3</a></li>
+                                        <li><a href="{{ url('stroop4') }}">LVL 4</a></li>
                                     </ul>
                                 </li>
                                 <li>

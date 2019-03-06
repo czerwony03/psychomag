@@ -42,8 +42,13 @@ class HomeController extends Controller
 
     public function stroop3()
     {
-        // $user->tests()->save($test,["error"=>3,"attempts"=>10,"avg_time"=>1356,"min_time"=>500,"max_time"=>2000,"result"=>""]);
         return view('stroop3');
+    }
+
+    public function stroop4()
+    {
+        // $user->tests()->save($test,["error"=>3,"attempts"=>10,"avg_time"=>1356,"min_time"=>500,"max_time"=>2000,"result"=>""]);
+        return view('stroop4');
     }
 
     public function tmt() {

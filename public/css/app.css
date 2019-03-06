@@ -10695,3 +10695,14 @@ body {
   height: 100%;
 }
 
+#stroop-test-box {
+  height: 100%;
+  width: 100%;
+  border: 1px solid white;
+}
+
+.stroop4-test-msg {
+  height: 100%;
+  width: 100%;
+}
+

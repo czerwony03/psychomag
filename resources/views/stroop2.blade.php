@@ -9,7 +9,7 @@
                         <span id="stroop-title">Test #1 - Stroop LVL2</span>
                     </div>
 
-                    <div class="card-body d-flex justify-content-around align-items-center" id="stroop-test-box">
+                    <div class="card-body d-flex justify-content-around align-items-center">
                         <h1 id="stroop-test-msg">Naciśnij start aby rozpocząć test!</h1>
                     </div>
 
@@ -104,6 +104,7 @@
                 testTimeout = null;
                 msg.text('Test przerwany. Naciśnij start, aby spróbować ponownie!').css('color','');
             } else {
+                clearMsg();
                 var list = msg.css({'background-color':'','height':'','width':'','border':''}).append('Wyniki:<br/><ul></ul>').find('ul');
                 results.forEach(function (result) {
                     list.append('<li>' + trueFalse(result[0]) + ' ' + result[1] + '</li>');
