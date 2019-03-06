@@ -94626,8 +94626,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Trails_A25V2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Trails/A25V2 */ "./resources/js/components/Trails/A25V2.js");
 /* harmony import */ var _Trails_A25V3__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Trails/A25V3 */ "./resources/js/components/Trails/A25V3.js");
 /* harmony import */ var _Trails_B13ALV1__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Trails/B13ALV1 */ "./resources/js/components/Trails/B13ALV1.js");
-/* harmony import */ var _Trails_B13ALV2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Trails/B13ALV2 */ "./resources/js/components/Trails/B13ALV2.js");
-/* harmony import */ var _Trails_B13ALV3__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Trails/B13ALV3 */ "./resources/js/components/Trails/B13ALV3.js");
+/* harmony import */ var _Trails_B13ALV2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Trails/B13ALV2 */ "./resources/js/components/Trails/B13ALV2.js");
+/* harmony import */ var _Trails_B13ALV3__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Trails/B13ALV3 */ "./resources/js/components/Trails/B13ALV3.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -94685,10 +94685,10 @@ function (_Trails) {
           return _Trails_B13ALV1__WEBPACK_IMPORTED_MODULE_4__["default"];
 
         case "B13ALV2":
-          return _Trails_B13ALV2__WEBPACK_IMPORTED_MODULE_6__["default"];
+          return _Trails_B13ALV2__WEBPACK_IMPORTED_MODULE_5__["default"];
 
         case "B13ALV3":
-          return _Trails_B13ALV3__WEBPACK_IMPORTED_MODULE_7__["default"];
+          return _Trails_B13ALV3__WEBPACK_IMPORTED_MODULE_6__["default"];
 
         default:
           return _Trails_A25V1__WEBPACK_IMPORTED_MODULE_1__["default"];
