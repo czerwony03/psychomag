@@ -19,7 +19,6 @@ class CustomTrails extends Trails {
                 return TrailsA12V1;
         }
     }
-
 }
 
 export default CustomTrails;

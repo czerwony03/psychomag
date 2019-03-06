@@ -45,6 +45,11 @@ html,body{
     height: 100%;
 }
 
+#tmttest > div > div {
+    display: flex;
+    justify-content: center;
+}
+
 #stroop-test-boxmsg {
     width:100%;
     border:1px solid white;
