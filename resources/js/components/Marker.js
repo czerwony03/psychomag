@@ -27,7 +27,7 @@ class Marker extends React.PureComponent {
             fill = this.props.theme.fill;
         return (
             <g transform={"translate(" + this.props.cx + "," + this.props.cy + ")"} onClick={this.props.onClick} className={this.props.classes.marker}>
-                {this.props.theme.fill === '#0D0' && this.props.lx && this.props.ly && <line x1="0" y1="0" x2={this.props.lx} y2={this.props.ly} strokeWidth="1" stroke="black"/>}
+                {this.props.theme.fill === '#0D0' && this.props.lx !== 9999 && this.props.ly !== 9999 && <line x1="0" y1="0" x2={this.props.lx} y2={this.props.ly} strokeWidth="1" stroke="black"/>}
                 <circle cx={0} cy={0} r={this.props.r} stroke={stroke} fill={fill}/>
                 <text x="0" y="0" textAnchor="middle" dy=".3em" fontSize={this.props.fontSize}>
                     {this.props.text.toUpperCase()}

@@ -60,8 +60,8 @@ class CustomTrails extends Trails {
                 lx = Math.floor(tokens[i-1].x * scale)-cx;
                 ly = Math.floor(tokens[i-1].y * scale)-cy;
             } else {
-                lx = null;
-                ly = null;
+                lx = 9999;
+                ly = 9999;
             }
             markers.push(
                 <Marker

@@ -102436,8 +102436,8 @@ function (_Trails) {
           lx = Math.floor(tokens[i - 1].x * scale) - cx;
           ly = Math.floor(tokens[i - 1].y * scale) - cy;
         } else {
-          lx = null;
-          ly = null;
+          lx = 9999;
+          ly = 9999;
         }
 
         markers.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Marker__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -102536,7 +102536,7 @@ function (_React$PureComponent) {
         transform: "translate(" + this.props.cx + "," + this.props.cy + ")",
         onClick: this.props.onClick,
         className: this.props.classes.marker
-      }, this.props.theme.fill === '#0D0' && this.props.lx && this.props.ly && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("line", {
+      }, this.props.theme.fill === '#0D0' && this.props.lx !== 9999 && this.props.ly !== 9999 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("line", {
         x1: "0",
         y1: "0",
         x2: this.props.lx,
