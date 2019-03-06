@@ -1,4 +1,7 @@
+import React from 'react';
 import Trails from '@orcatech/react-neuropsych-trails';
+import Marker from './Marker';
+import Theme from './Theme';
 
 import TrailsA25V1 from './Trails/A25V1';
 import TrailsA25V2 from './Trails/A25V2';
@@ -27,7 +30,55 @@ class CustomTrails extends Trails {
             default:
                 return TrailsA25V1;
         }
-    }
+    };
+
+    renderMarkers = (tokens, diameter, scale) => {
+        let markers = [];
+        for (let i = 0; i < tokens.length; i++) {
+            // if correctly selected show as completed
+            let theme = this.props.progress > i ?
+                Theme.success :
+                Theme.error;
+
+            // if next in line to be selected handle with success
+            // else handle with error
+            let handler = this.props.progress === i ?
+                (e) => this.handleSuccess(e, i) :
+                (e) => this.handleError(e, i);
+
+            // if finished, don't listen anymore
+            if (this.props.progress >= tokens.length) {
+                handler = undefined;
+            }
+
+            // add the marker keyed to the token
+            const cx=Math.floor(tokens[i].x * scale);
+            const cy=Math.floor(tokens[i].y * scale);
+            let lx=0;
+            let ly=0;
+            if(i) {
+                lx = Math.floor(tokens[i-1].x * scale)-cx;
+                ly = Math.floor(tokens[i-1].y * scale)-cy;
+            } else {
+                lx = null;
+                ly = null;
+            }
+            markers.push(
+                <Marker
+                    cx={cx}
+                    cy={cy}
+                    lx={lx}
+                    ly={ly}
+                    fontSize={Math.floor(diameter/2 * scale)}
+                    key={"trails-marker-" + tokens[i].text}
+                    onClick={handler}
+                    r={Math.floor(diameter/2 * scale)}
+                    text={tokens[i].text}
+                    theme={theme}
+                />);
+        }
+        return markers;
+    };
 }
 
 export default CustomTrails;
