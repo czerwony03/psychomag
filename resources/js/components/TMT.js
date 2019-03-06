@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
-import CustomTrails from './CustomTrails';
+import CustomTrails from './TMT/CustomTrails';
 
 const customStyles = {
     content : {

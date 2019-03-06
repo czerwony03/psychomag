@@ -102317,268 +102317,6 @@ if (token) {
 
 /***/ }),
 
-/***/ "./resources/js/components/CustomTrails.js":
-/*!*************************************************!*\
-  !*** ./resources/js/components/CustomTrails.js ***!
-  \*************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _orcatech_react_neuropsych_trails__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @orcatech/react-neuropsych-trails */ "./node_modules/@orcatech/react-neuropsych-trails/dist/react-neuropsych-trails.js");
-/* harmony import */ var _orcatech_react_neuropsych_trails__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_orcatech_react_neuropsych_trails__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Marker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Marker */ "./resources/js/components/Marker.js");
-/* harmony import */ var _Theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Theme */ "./resources/js/components/Theme.js");
-/* harmony import */ var _Trails_A25V1__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Trails/A25V1 */ "./resources/js/components/Trails/A25V1.js");
-/* harmony import */ var _Trails_A25V2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Trails/A25V2 */ "./resources/js/components/Trails/A25V2.js");
-/* harmony import */ var _Trails_A25V3__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Trails/A25V3 */ "./resources/js/components/Trails/A25V3.js");
-/* harmony import */ var _Trails_B13ALV1__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Trails/B13ALV1 */ "./resources/js/components/Trails/B13ALV1.js");
-/* harmony import */ var _Trails_B13ALV2__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Trails/B13ALV2 */ "./resources/js/components/Trails/B13ALV2.js");
-/* harmony import */ var _Trails_B13ALV3__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Trails/B13ALV3 */ "./resources/js/components/Trails/B13ALV3.js");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-
-
-
-
-
-var CustomTrails =
-/*#__PURE__*/
-function (_Trails) {
-  _inherits(CustomTrails, _Trails);
-
-  function CustomTrails() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, CustomTrails);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(CustomTrails)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_this), "trail", function () {
-      switch (_this.props.part) {
-        case "A25V1":
-          return _Trails_A25V1__WEBPACK_IMPORTED_MODULE_4__["default"];
-
-        case "A25V2":
-          return _Trails_A25V2__WEBPACK_IMPORTED_MODULE_5__["default"];
-
-        case "A25V3":
-          return _Trails_A25V3__WEBPACK_IMPORTED_MODULE_6__["default"];
-
-        case "B13ALV1":
-          return _Trails_B13ALV1__WEBPACK_IMPORTED_MODULE_7__["default"];
-
-        case "B13ALV2":
-          return _Trails_B13ALV2__WEBPACK_IMPORTED_MODULE_8__["default"];
-
-        case "B13ALV3":
-          return _Trails_B13ALV3__WEBPACK_IMPORTED_MODULE_9__["default"];
-
-        default:
-          return _Trails_A25V1__WEBPACK_IMPORTED_MODULE_4__["default"];
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "renderMarkers", function (tokens, diameter, scale) {
-      var markers = [];
-
-      var _loop = function _loop(i) {
-        // if correctly selected show as completed
-        var theme = _this.props.progress > i ? _Theme__WEBPACK_IMPORTED_MODULE_3__["default"].success : _Theme__WEBPACK_IMPORTED_MODULE_3__["default"].error; // if next in line to be selected handle with success
-        // else handle with error
-
-        var handler = _this.props.progress === i ? function (e) {
-          return _this.handleSuccess(e, i);
-        } : function (e) {
-          return _this.handleError(e, i);
-        }; // if finished, don't listen anymore
-
-        if (_this.props.progress >= tokens.length) {
-          handler = undefined;
-        } // add the marker keyed to the token
-
-
-        var cx = Math.floor(tokens[i].x * scale);
-        var cy = Math.floor(tokens[i].y * scale);
-        var lx = 0;
-        var ly = 0;
-
-        if (i) {
-          lx = Math.floor(tokens[i - 1].x * scale) - cx;
-          ly = Math.floor(tokens[i - 1].y * scale) - cy;
-        } else {
-          lx = 9999;
-          ly = 9999;
-        }
-
-        markers.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Marker__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          cx: cx,
-          cy: cy,
-          lx: lx,
-          ly: ly,
-          fontSize: Math.floor(diameter / 2 * scale),
-          key: "trails-marker-" + tokens[i].text,
-          onClick: handler,
-          r: Math.floor(diameter / 2 * scale),
-          text: tokens[i].text,
-          theme: theme
-        }));
-      };
-
-      for (var i = 0; i < tokens.length; i++) {
-        _loop(i);
-      }
-
-      return markers;
-    });
-
-    return _this;
-  }
-
-  return CustomTrails;
-}(_orcatech_react_neuropsych_trails__WEBPACK_IMPORTED_MODULE_1___default.a);
-
-/* harmony default export */ __webpack_exports__["default"] = (CustomTrails);
-
-/***/ }),
-
-/***/ "./resources/js/components/Marker.js":
-/*!*******************************************!*\
-  !*** ./resources/js/components/Marker.js ***!
-  \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles */ "./resources/js/components/styles.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/styles/index.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-var Marker =
-/*#__PURE__*/
-function (_React$PureComponent) {
-  _inherits(Marker, _React$PureComponent);
-
-  function Marker() {
-    _classCallCheck(this, Marker);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Marker).apply(this, arguments));
-  }
-
-  _createClass(Marker, [{
-    key: "render",
-    value: function render() {
-      var x = this.props.cx - this.props.r,
-          y = this.props.cy - this.props.r,
-          width = this.props.r * 2,
-          height = this.props.r * 2,
-          stroke = this.props.theme.stroke,
-          fill = this.props.theme.fill;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("g", {
-        transform: "translate(" + this.props.cx + "," + this.props.cy + ")",
-        onClick: this.props.onClick,
-        className: this.props.classes.marker
-      }, this.props.theme.fill === '#0D0' && this.props.lx !== 9999 && this.props.ly !== 9999 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("line", {
-        x1: "0",
-        y1: "0",
-        x2: this.props.lx,
-        y2: this.props.ly,
-        strokeWidth: "1",
-        stroke: "black"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("circle", {
-        cx: 0,
-        cy: 0,
-        r: this.props.r,
-        stroke: stroke,
-        fill: fill
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("text", {
-        x: "0",
-        y: "0",
-        textAnchor: "middle",
-        dy: ".3em",
-        fontSize: this.props.fontSize
-      }, this.props.text.toUpperCase()));
-    }
-  }]);
-
-  return Marker;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent);
-
-_defineProperty(Marker, "propTypes", {
-  r: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number.isRequired,
-  cx: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number.isRequired,
-  cy: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number.isRequired,
-  fontSize: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number.isRequired,
-  theme: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object,
-  text: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
-  onClick: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
-  classes: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.any.isRequired,
-  lx: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.any,
-  ly: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.any
-});
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["withStyles"])(_styles__WEBPACK_IMPORTED_MODULE_2__["default"])(Marker));
-
-/***/ }),
-
 /***/ "./resources/js/components/TMT.js":
 /*!****************************************!*\
   !*** ./resources/js/components/TMT.js ***!
@@ -102596,7 +102334,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-modal */ "./node_modules/react-modal/lib/index.js");
 /* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_modal__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _CustomTrails__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./CustomTrails */ "./resources/js/components/CustomTrails.js");
+/* harmony import */ var _TMT_CustomTrails__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TMT/CustomTrails */ "./resources/js/components/TMT/CustomTrails.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -102753,7 +102491,7 @@ function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_CustomTrails__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_TMT_CustomTrails__WEBPACK_IMPORTED_MODULE_4__["default"], {
         part: this.props.part,
         progress: this.state.progress,
         feedback: true,
@@ -102808,10 +102546,272 @@ if (tmttest) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Theme.js":
-/*!******************************************!*\
-  !*** ./resources/js/components/Theme.js ***!
-  \******************************************/
+/***/ "./resources/js/components/TMT/CustomTrails.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/TMT/CustomTrails.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _orcatech_react_neuropsych_trails__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @orcatech/react-neuropsych-trails */ "./node_modules/@orcatech/react-neuropsych-trails/dist/react-neuropsych-trails.js");
+/* harmony import */ var _orcatech_react_neuropsych_trails__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_orcatech_react_neuropsych_trails__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Marker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Marker */ "./resources/js/components/TMT/Marker.js");
+/* harmony import */ var _Theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Theme */ "./resources/js/components/TMT/Theme.js");
+/* harmony import */ var _Trails_A25V1__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Trails/A25V1 */ "./resources/js/components/TMT/Trails/A25V1.js");
+/* harmony import */ var _Trails_A25V2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Trails/A25V2 */ "./resources/js/components/TMT/Trails/A25V2.js");
+/* harmony import */ var _Trails_A25V3__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Trails/A25V3 */ "./resources/js/components/TMT/Trails/A25V3.js");
+/* harmony import */ var _Trails_B13ALV1__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Trails/B13ALV1 */ "./resources/js/components/TMT/Trails/B13ALV1.js");
+/* harmony import */ var _Trails_B13ALV2__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Trails/B13ALV2 */ "./resources/js/components/TMT/Trails/B13ALV2.js");
+/* harmony import */ var _Trails_B13ALV3__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Trails/B13ALV3 */ "./resources/js/components/TMT/Trails/B13ALV3.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+
+
+
+var CustomTrails =
+/*#__PURE__*/
+function (_Trails) {
+  _inherits(CustomTrails, _Trails);
+
+  function CustomTrails() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, CustomTrails);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(CustomTrails)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "trail", function () {
+      switch (_this.props.part) {
+        case "A25V1":
+          return _Trails_A25V1__WEBPACK_IMPORTED_MODULE_4__["default"];
+
+        case "A25V2":
+          return _Trails_A25V2__WEBPACK_IMPORTED_MODULE_5__["default"];
+
+        case "A25V3":
+          return _Trails_A25V3__WEBPACK_IMPORTED_MODULE_6__["default"];
+
+        case "B13ALV1":
+          return _Trails_B13ALV1__WEBPACK_IMPORTED_MODULE_7__["default"];
+
+        case "B13ALV2":
+          return _Trails_B13ALV2__WEBPACK_IMPORTED_MODULE_8__["default"];
+
+        case "B13ALV3":
+          return _Trails_B13ALV3__WEBPACK_IMPORTED_MODULE_9__["default"];
+
+        default:
+          return _Trails_A25V1__WEBPACK_IMPORTED_MODULE_4__["default"];
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "renderMarkers", function (tokens, diameter, scale) {
+      var markers = [];
+
+      var _loop = function _loop(i) {
+        // if correctly selected show as completed
+        var theme = _this.props.progress > i ? _Theme__WEBPACK_IMPORTED_MODULE_3__["default"].success : _Theme__WEBPACK_IMPORTED_MODULE_3__["default"].error; // if next in line to be selected handle with success
+        // else handle with error
+
+        var handler = _this.props.progress === i ? function (e) {
+          return _this.handleSuccess(e, i);
+        } : function (e) {
+          return _this.handleError(e, i);
+        }; // if finished, don't listen anymore
+
+        if (_this.props.progress >= tokens.length) {
+          handler = undefined;
+        } // add the marker keyed to the token
+
+
+        var cx = Math.floor(tokens[i].x * scale);
+        var cy = Math.floor(tokens[i].y * scale);
+        var lx = 0;
+        var ly = 0;
+
+        if (i) {
+          lx = Math.floor(tokens[i - 1].x * scale) - cx;
+          ly = Math.floor(tokens[i - 1].y * scale) - cy;
+        } else {
+          lx = 9999;
+          ly = 9999;
+        }
+
+        markers.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Marker__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          cx: cx,
+          cy: cy,
+          lx: lx,
+          ly: ly,
+          fontSize: Math.floor(diameter / 2 * scale),
+          key: "trails-marker-" + tokens[i].text,
+          onClick: handler,
+          r: Math.floor(diameter / 2 * scale),
+          text: tokens[i].text,
+          theme: theme
+        }));
+      };
+
+      for (var i = 0; i < tokens.length; i++) {
+        _loop(i);
+      }
+
+      return markers;
+    });
+
+    return _this;
+  }
+
+  return CustomTrails;
+}(_orcatech_react_neuropsych_trails__WEBPACK_IMPORTED_MODULE_1___default.a);
+
+/* harmony default export */ __webpack_exports__["default"] = (CustomTrails);
+
+/***/ }),
+
+/***/ "./resources/js/components/TMT/Marker.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/TMT/Marker.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles */ "./resources/js/components/TMT/styles.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/styles/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+var Marker =
+/*#__PURE__*/
+function (_React$PureComponent) {
+  _inherits(Marker, _React$PureComponent);
+
+  function Marker() {
+    _classCallCheck(this, Marker);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Marker).apply(this, arguments));
+  }
+
+  _createClass(Marker, [{
+    key: "render",
+    value: function render() {
+      var x = this.props.cx - this.props.r,
+          y = this.props.cy - this.props.r,
+          width = this.props.r * 2,
+          height = this.props.r * 2,
+          stroke = this.props.theme.stroke,
+          fill = this.props.theme.fill;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("g", {
+        transform: "translate(" + this.props.cx + "," + this.props.cy + ")",
+        onClick: this.props.onClick,
+        className: this.props.classes.marker
+      }, this.props.theme.fill === '#0D0' && this.props.lx !== 9999 && this.props.ly !== 9999 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("line", {
+        x1: "0",
+        y1: "0",
+        x2: this.props.lx,
+        y2: this.props.ly,
+        strokeWidth: "1",
+        stroke: "black"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("circle", {
+        cx: 0,
+        cy: 0,
+        r: this.props.r,
+        stroke: stroke,
+        fill: fill
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("text", {
+        x: "0",
+        y: "0",
+        textAnchor: "middle",
+        dy: ".3em",
+        fontSize: this.props.fontSize
+      }, this.props.text.toUpperCase()));
+    }
+  }]);
+
+  return Marker;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.PureComponent);
+
+_defineProperty(Marker, "propTypes", {
+  r: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number.isRequired,
+  cx: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number.isRequired,
+  cy: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number.isRequired,
+  fontSize: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number.isRequired,
+  theme: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object,
+  text: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  onClick: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.any.isRequired,
+  lx: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.any,
+  ly: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.any
+});
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["withStyles"])(_styles__WEBPACK_IMPORTED_MODULE_2__["default"])(Marker));
+
+/***/ }),
+
+/***/ "./resources/js/components/TMT/Theme.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/TMT/Theme.js ***!
+  \**********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -102839,10 +102839,10 @@ var Theme = {
 
 /***/ }),
 
-/***/ "./resources/js/components/Trails/A25V1.js":
-/*!*************************************************!*\
-  !*** ./resources/js/components/Trails/A25V1.js ***!
-  \*************************************************/
+/***/ "./resources/js/components/TMT/Trails/A25V1.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/TMT/Trails/A25V1.js ***!
+  \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -102957,10 +102957,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Trails/A25V2.js":
-/*!*************************************************!*\
-  !*** ./resources/js/components/Trails/A25V2.js ***!
-  \*************************************************/
+/***/ "./resources/js/components/TMT/Trails/A25V2.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/TMT/Trails/A25V2.js ***!
+  \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -103075,10 +103075,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Trails/A25V3.js":
-/*!*************************************************!*\
-  !*** ./resources/js/components/Trails/A25V3.js ***!
-  \*************************************************/
+/***/ "./resources/js/components/TMT/Trails/A25V3.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/TMT/Trails/A25V3.js ***!
+  \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -103193,10 +103193,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Trails/B13ALV1.js":
-/*!***************************************************!*\
-  !*** ./resources/js/components/Trails/B13ALV1.js ***!
-  \***************************************************/
+/***/ "./resources/js/components/TMT/Trails/B13ALV1.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/TMT/Trails/B13ALV1.js ***!
+  \*******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -103311,10 +103311,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Trails/B13ALV2.js":
-/*!***************************************************!*\
-  !*** ./resources/js/components/Trails/B13ALV2.js ***!
-  \***************************************************/
+/***/ "./resources/js/components/TMT/Trails/B13ALV2.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/TMT/Trails/B13ALV2.js ***!
+  \*******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -103429,10 +103429,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Trails/B13ALV3.js":
-/*!***************************************************!*\
-  !*** ./resources/js/components/Trails/B13ALV3.js ***!
-  \***************************************************/
+/***/ "./resources/js/components/TMT/Trails/B13ALV3.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/TMT/Trails/B13ALV3.js ***!
+  \*******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -103547,10 +103547,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/styles.js":
-/*!*******************************************!*\
-  !*** ./resources/js/components/styles.js ***!
-  \*******************************************/
+/***/ "./resources/js/components/TMT/styles.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/TMT/styles.js ***!
+  \***********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
