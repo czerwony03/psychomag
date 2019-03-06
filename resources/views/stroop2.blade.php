@@ -104,7 +104,7 @@
                 testTimeout = null;
                 msg.text('Test przerwany. Naciśnij start, aby spróbować ponownie!').css('color','');
             } else {
-                var list = msg.css({'background-color':'','height':'','width':''}).append('Wyniki:<br/><ul></ul>').find('ul');
+                var list = msg.css({'background-color':'','height':'','width':'','border':''}).append('Wyniki:<br/><ul></ul>').find('ul');
                 results.forEach(function (result) {
                     list.append('<li>' + trueFalse(result[0]) + ' ' + result[1] + '</li>');
                 });
@@ -145,10 +145,10 @@
             currentTimeout = setTimeout(showAttempt, randomInt(minTimeout,maxTimeout));
         }
         function showText(colorStringIndex, styleColor) {
-            $('#stroop-test-msg').css({'background-color':styleColor,'height':'50%','width':'50%'});
+            $('#stroop-test-msg').css({'background-color':styleColor,'height':'50%','width':'50%','border':'1px solid black'});
         }
         function clearMsg() {
-            $('#stroop-test-msg').text('').css({'background-color':'','height':'','width':''});
+            $('#stroop-test-msg').text('').css({'background-color':'','height':'','width':'','border':''});
         }
         function randomInt(min,max) {
             return Math.floor(Math.random()*(max-min+1)+min);
