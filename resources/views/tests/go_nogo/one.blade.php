@@ -59,7 +59,7 @@
             attempts = null,
             results = [],
             errors = null,
-            maxTime = 10,
+            maxTime = 60,
             minTimeout = 1000,
             maxTimeout = 2000,
             actionTimeout,
