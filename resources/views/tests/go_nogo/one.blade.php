@@ -145,6 +145,7 @@
                 clearTimeout(actionTimeout);
                 calculatedTime = new Date().getTime()-timeStart;
             }
+            actionTimeout=null;
             results.push([
                 status,
                 calculatedTime
@@ -185,10 +186,12 @@
         $(document).on('keypress',function(e) {
             if(testStatus) {
                 let key = parseInt(e.which,10);
-                if(nextAnswer && nextAnswer === buttons[key]) {
-                    attemptResult(true);
-                } else {
-                    attemptResult(false);
+                if(actionTimeout) {
+                    if(nextAnswer && nextAnswer === buttons[key]) {
+                        attemptResult(true);
+                    } else {
+                        attemptResult(false);
+                    }
                 }
             }
         });
