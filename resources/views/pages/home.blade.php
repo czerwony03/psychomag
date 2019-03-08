@@ -31,6 +31,13 @@
                                         <li><a href="{{ url('tmtA') }}">Test A</a></li>
                                         <li><a href="{{ url('tmtB') }}">Test B</a></li>
                                     </ul>
+                                </li>
+                                <li>
+                                    Go/No go
+                                    <ul>
+                                        <li><a href="{{ url('go_nogo_one') }}">#1</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                     </div>
                 </div>

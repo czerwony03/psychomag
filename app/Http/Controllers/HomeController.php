@@ -58,4 +58,8 @@ class HomeController extends Controller
     public function tmtB() {
         return view('tests.tmt',["ver"=>"B"]);
     }
+
+    public function go_nogo_one() {
+        return view('tests.go_nogo.one');
+    }
 }

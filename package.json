@@ -27,6 +27,7 @@
     "dependencies": {
         "@babel/plugin-proposal-class-properties": "^7.3.4",
         "@orcatech/react-neuropsych-trails": "0.0.7",
+        "font-awesome": "^4.7.0",
         "react-modal": "^3.8.1"
     },
     "babel": {

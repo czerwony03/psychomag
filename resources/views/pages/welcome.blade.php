@@ -93,6 +93,8 @@
                     <br/>TMT:<br/>
                     <a href="{{ url('tmtA') }}">Test A</a>
                     <a href="{{ url('tmtB') }}">Test B</a>
+                    <br/>GO/NO GO:<br/>
+                    <a href="{{ url('go_nogo_one') }}">#1</a>
                 </div>
             </div>
         </div>
