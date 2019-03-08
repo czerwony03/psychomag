@@ -23,3 +23,4 @@ Route::get('/stroop4', 'HomeController@stroop4')->name('stroop4');
 Route::get('/tmtA', 'HomeController@tmtA')->name('tmtA');
 Route::get('/tmtB', 'HomeController@tmtB')->name('tmtB');
 Route::get('/go_nogo_one', 'HomeController@go_nogo_one')->name('go_nogo_one');
+Route::get('/go_nogo_two', 'HomeController@go_nogo_two')->name('go_nogo_two');

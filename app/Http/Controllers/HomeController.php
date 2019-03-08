@@ -62,4 +62,8 @@ class HomeController extends Controller
     public function go_nogo_one() {
         return view('tests.go_nogo.one');
     }
+
+    public function go_nogo_two() {
+        return view('tests.go_nogo.two');
+    }
 }

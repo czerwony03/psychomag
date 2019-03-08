@@ -36,6 +36,7 @@
                                     Go/No go
                                     <ul>
                                         <li><a href="{{ url('go_nogo_one') }}">#1</a></li>
+                                        <li><a href="{{ url('go_nogo_two') }}">#2</a></li>
                                     </ul>
                                 </li>
                             </ul>
