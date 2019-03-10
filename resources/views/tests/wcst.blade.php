@@ -10,46 +10,43 @@
                     </div>
 
                     <div class="card-body" id="wcst">
-                        <div id="WCSTinstructions" style="margin:200px 150px;">
+                        <div id="WCSTinstructions">
                             <p>Ten test jest nietypowy, ponieważ nie ma żadnej instrukcji.</p>
 
                             <p>Dostajesz dwie talie kart, z których każda zawiera 64 karty. Twoim zadaniem jest posortowanie tych kart na 4 różne stosy. Prawidłowa odpowiedź zależy od reguły, ale nie wiesz, co to za reguła. Po każdej próbie powiemy Ci, czy masz rację. Po umieszczeniu karty na właściwym stosie na ekranie pojawi się słowo "DOBRZE". A kiedy położysz kartę na niewłaściwym stosie, pojawi się słowo "ŹLE". Celem jest zdobycie jak największej ilości kart na stos "prawidłowy".</p>
 
                             <p>Użyj myszki aby dokonać wyboru.</p>
-                            <p>Naciśnij SPACJE aby rozpocząć...</p>
+                            <p style="font-weight: bold;">Naciśnij SPACJE aby rozpocząć...</p>
                         </div>
 
                         <div id="WCSTkeyCards" style="display: none;">
-                            <img src="img/111.jpg" height="200" width="200" style="margin:50px 10px 50px 50px; cursor:pointer; cursor:hand;"
+                            <img src="img/111.jpg" height="150" width="150" style="margin:50px 10px 50px 50px; cursor:pointer; cursor:hand;"
                                  onClick="WCSTcardPressed(1);">			<!-- card: 1 circle red -->
-                            <img src="img/222.jpg" height="200" width="200" style="margin:50px 10px; cursor:pointer;cursor:hand;"
+                            <img src="img/222.jpg" height="150" width="150" style="margin:50px 10px; cursor:pointer;cursor:hand;"
                                  onClick="WCSTcardPressed(2);">					<!-- card: 2 diamonds green -->
-                            <img src="img/333.jpg" height="200" width="200" style="margin:50px 10px; cursor:pointer;cursor:hand;"
+                            <img src="img/333.jpg" height="150" width="150" style="margin:50px 10px; cursor:pointer;cursor:hand;"
                                  onClick="WCSTcardPressed(3);">					<!-- card: 3 stars blue -->
-                            <img src="img/444.jpg" height="200" width="200" style="margin:50px 10px; cursor:pointer;cursor:hand;"
+                            <img src="img/444.jpg" height="150" width="150" style="margin:50px 10px; cursor:pointer;cursor:hand;"
                                  onClick="WCSTcardPressed(4);">					<!-- card: 4 triangles yelow -->
                         </div>
 
-
-                        <p id="WCSTgameInstructions" style="display: none; margin:50px 180px 0px 160px">Click on deck to sort card: </p>
-
                         <!-- The showing the response card here (the cards that needs to be sorted to one of the four piles) -->
-                        <img src="blank.png" id="WCSTresponseCard" alt="just nothing" height="200" width="200" style="margin:0px 0px 0px 400px; display: none;"/>
+                        <img src="blank.png" id="WCSTresponseCard" alt="just nothing" height="150" width="150" style="margin:0px 0px 0px 400px; display: none;"/>
 
                         <!-- Feedback to the participant after choosing a pile the response card belongs to - was he right or wrong. -->
-                        <p id="WCSTright" style="color:green; display: none; margin:100px 10px 10px 440px;"> DOBRZE</p>
-                        <p id="WCSTwrong" style="color:red; display: none; margin:100px 10px 10px 440px;"> ŹLE</p>
+                        <p id="WCSTright" style="color:lime; display: none; margin:0px 10px 10px 400px; font-size:3em; font-weight:bold;">DOBRZE</p>
+                        <p id="WCSTwrong" style="color:red; display: none; margin:0px 10px 10px 400px; font-size:3em; font-weight:bold;">ŹLE</p>
 
                         <!-- Once the game is finished - End instructions are shown -->
-                        <div id="WCSTendInstructions" style="display: none; margin:400px 150px;">
-                            <p> Thank you! Yada Yada Yada</p>
-                            <br><br>
-                            <input type="button" value="Continue" onclick="next();" />
+                        <div id="WCSTendInstructions" style="display: none;">
+                            <p> Trwa generowanie wyników... To jeszcze muszę zrobić xD</p>
+                            <!--<br><br>
+                            <input type="button" value="Continue" onclick="next();" />-->
                         </div>
                     </div>
 
                     <div class="card-footer d-flex justify-content-around align-items-center">
-                        -
+                        <p id="WCSTgameInstructions" style="display: none;">Naciśnij jedną z 4 kart która najlepiej pasuje do tej karty: </p>
                     </div>
                 </div>
             </div>
