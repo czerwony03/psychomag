@@ -39,6 +39,9 @@
                                         <li><a href="{{ url('go_nogo_two') }}">#2</a></li>
                                     </ul>
                                 </li>
+                                <li>
+                                    <a href="{{ url('wcst') }}">WCST</a>
+                                </li>
                             </ul>
                     </div>
                 </div>

@@ -96,6 +96,8 @@
                     <br/>GO/NO GO:<br/>
                     <a href="{{ url('go_nogo_one') }}">#1</a>
                     <a href="{{ url('go_nogo_two') }}">#2</a>
+                    <br/>WCST:<br/>
+                    <a href="{{ url('wcst') }}">Link</a>
                 </div>
             </div>
         </div>

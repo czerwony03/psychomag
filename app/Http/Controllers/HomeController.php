@@ -66,4 +66,8 @@ class HomeController extends Controller
     public function go_nogo_two() {
         return view('tests.go_nogo.two');
     }
+
+    public function wcst() {
+        return view('tests.wcst');
+    }
 }
