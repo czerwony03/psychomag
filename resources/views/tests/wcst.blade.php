@@ -36,12 +36,11 @@
                         <!-- Feedback to the participant after choosing a pile the response card belongs to - was he right or wrong. -->
                         <p id="WCSTright" style="color:lime; display: none; margin:0px 10px 10px 400px; font-size:3em; font-weight:bold;">DOBRZE</p>
                         <p id="WCSTwrong" style="color:red; display: none; margin:0px 10px 10px 400px; font-size:3em; font-weight:bold;">ŹLE</p>
+                        <p id="WCSTpers" style="color:yellow; display: none; margin:0px 10px 10px 400px; font-size:3em; font-weight:bold;">Perseweracyjny?</p>
 
                         <!-- Once the game is finished - End instructions are shown -->
                         <div id="WCSTendInstructions" style="display: none;">
-                            <p> Trwa generowanie wyników... To jeszcze muszę zrobić xD</p>
-                            <!--<br><br>
-                            <input type="button" value="Continue" onclick="next();" />-->
+                            <p>Wyniki:</p>
                         </div>
                     </div>
 
@@ -90,8 +89,14 @@
             $('#WCSTgameInstructions').hide();
             $('#WCSTwrong').hide();
             $('#WCSTright').hide();
+            $('#WCSTpers').hide();
             setTimeout(function() {
-                $('#WCSTendInstructions').show();
+                let instruction = $('#WCSTendInstructions');
+                instruction.show();
+                let list = instruction.append('<br/><ul></ul>').find('ul');
+                list.append('<li>Łącznie: ' + total + '</li>');
+                list.append('<li>Błędów: ' + totalWrong + '</li>');
+                list.append('<li>Błędy perseweracyjne: ' + totalRepeatedWrong + '</li>');
             }, 1000);
         }
 
@@ -105,6 +110,7 @@
         var countRight = 0;					//Counting how many are consecutive correct (in order to change the classification principle after 10 correct).
         var seriesNumber = 0;				//WCST tests how many series (a series = 10 consecutive correct) the participants completed.
 
+        var total = 0;
         var totalWrong = 0;					//WCST tests the total amount of wrong answers the participant had.
         var totalRepeatedWrong = 0; 		//WCST tests the total amount of wrong answers that the type of mistake was exactly like the mistake from the privious trial.
         var previousTrialWrongType = -1;	//For this we always need to know if last trial was a wrong (error) and the type of error. -1 means right.
@@ -138,6 +144,7 @@
         function WCSTdesplayRight() {
             $('#WCSTright').show().delay(1000).hide(1);
             countRight++;
+            total++;
             previousTrialWrongType = -1;
             currentTrialWrongType = -2;
         }
@@ -146,6 +153,7 @@
             $('#WCSTwrong').show().delay(1000).hide(1);
             countRight=0;
             totalWrong++;
+            total++;
         }
 
         function WCSTgameKeyPressed(code) {
@@ -199,6 +207,7 @@
             if (currentTrialWrongType != -2) {
                 if (currentTrialWrongType == previousTrialWrongType) {
                     totalRepeatedWrong++;
+                    $('#WCSTpers').show().delay(1000).hide(1);
                 }
                 previousTrialWrongType = currentTrialWrongType;
             }
