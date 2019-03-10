@@ -216,7 +216,7 @@
 
             cards.shift();
 
-            if ((cards.length!=0) && (seriesNumber<6)) {
+            if ((cards.length!=0) && (seriesNumber<6) && (total<128)) {
 
                 card = cards[0];
                 document.getElementById('WCSTresponseCard').src = "img/" + card.toString() + ".jpg";
