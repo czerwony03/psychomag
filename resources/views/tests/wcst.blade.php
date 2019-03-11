@@ -36,7 +36,6 @@
                         <!-- Feedback to the participant after choosing a pile the response card belongs to - was he right or wrong. -->
                         <p id="WCSTright" style="color:lime; display: none; margin:0px 10px 10px 400px; font-size:3em; font-weight:bold;">DOBRZE</p>
                         <p id="WCSTwrong" style="color:red; display: none; margin:0px 10px 10px 400px; font-size:3em; font-weight:bold;">ŹLE</p>
-                        <p id="WCSTpers" style="color:yellow; display: none; margin:0px 10px 10px 400px; font-size:3em; font-weight:bold;">Perseweracyjny?</p>
 
                         <!-- Once the game is finished - End instructions are shown -->
                         <div id="WCSTendInstructions" style="display: none;">
@@ -89,7 +88,6 @@
             $('#WCSTgameInstructions').hide();
             $('#WCSTwrong').hide();
             $('#WCSTright').hide();
-            $('#WCSTpers').hide();
             setTimeout(function() {
                 let instruction = $('#WCSTendInstructions');
                 instruction.show();
@@ -207,7 +205,6 @@
             if (currentTrialWrongType != -2) {
                 if (currentTrialWrongType == previousTrialWrongType) {
                     totalRepeatedWrong++;
-                    $('#WCSTpers').show().delay(1000).hide(1);
                 }
                 previousTrialWrongType = currentTrialWrongType;
             }

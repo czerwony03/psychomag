@@ -64,7 +64,8 @@
             maxTimeout = 2000,
             actionTimeout,
             currentTimeout,
-            testTimeout;
+            testTimeout,
+            resultClearTimeout;
 
         function testStart() {
             console.log('Test START');
@@ -77,6 +78,7 @@
             actionTimeout=null;
             testTimeout=null;
             currentTimeout=null;
+            resultClearTimeout=null;
             clearMsg();
             $('#stroop-title').addClass('live');
 
@@ -89,6 +91,9 @@
             }
             if(currentTimeout) {
                 clearTimeout(currentTimeout);
+            }
+            if(resultClearTimeout) {
+                clearTimeout(resultClearTimeout);
             }
             currentTimeout = null;
             console.log('Test STOP');
@@ -152,8 +157,15 @@
             ]);
             if(!status) {
                 errors++;
+                if(calculatedTime===500) {
+                    showText('<span style="color:yellow;">ZBYT WOLNO</span>');
+                } else {
+                    showText('<span style="color:red;">ŹLE</span>');
+                }
+            } else {
+                showText('<span style="color:lime;">OK</span>');
             }
-
+            resultClearTimeout = setTimeout(function() { clearMsg(); }, 500);
             setNextTimeout();
         }
         function setNextTimeout() {
