@@ -102527,7 +102527,48 @@ _defineProperty(TMT, "propTypes", {
   ver: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string.isRequired
 });
 
-/* harmony default export */ __webpack_exports__["default"] = (TMT);
+var TMTBox =
+/*#__PURE__*/
+function (_React$Component2) {
+  _inherits(TMTBox, _React$Component2);
+
+  function TMTBox() {
+    _classCallCheck(this, TMTBox);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(TMTBox).apply(this, arguments));
+  }
+
+  _createClass(TMTBox, [{
+    key: "renderTest",
+    value: function renderTest() {
+      react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(TMT, {
+        ver: this.props.ver,
+        part: this.props.part
+      }), document.getElementById('tmttest'));
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, this.props.ver === 'A' && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Na ekranie zobaczysz punkty oznaczone cyframi od 1 do 25.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "Twoim zadaniem b\u0119dzie jak najszybsze po\u0142\u0105czenie w kolejno\u015Bci numerycznej tych punkt\xF3w.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+        src: "https://i.imgur.com/bxzdbcr.png"
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null)), this.props.ver === 'B' && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Na ekranie zobaczysz punkty oznaczone cyframi od 1 do 25 i litery od A do L.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "Twoim zadaniem b\u0119dzie jak najszybsze po\u0142\u0105czenie lini\u0105 ci\u0105g\u0142\u0105 naprzemiennie cyfry z kolejnymi literami alfabetu wed\u0142ug wzoru:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "1-A-2-B-3-C-4-D itd.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+        src: "https://i.imgur.com/HdlAMh3.png"
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        className: "btn btn-success",
+        onClick: this.renderTest.bind(this)
+      }, "START"));
+    }
+  }]);
+
+  return TMTBox;
+}(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
+
+_defineProperty(TMTBox, "propTypes", {
+  part: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string.isRequired,
+  ver: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string.isRequired
+});
+
+/* harmony default export */ __webpack_exports__["default"] = (TMTBox);
 
 if (tmttest) {
   var trails = [];
@@ -102538,7 +102579,7 @@ if (tmttest) {
     trails = ["B13ALV1", "B13ALV2", "B13ALV3"];
   }
 
-  react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(TMT, {
+  react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(TMTBox, {
     ver: tmttest.dataset.ver,
     part: trails[Math.floor(Math.random() * trails.length)]
   }), document.getElementById('tmttest'));

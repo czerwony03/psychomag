@@ -48,6 +48,11 @@ html,body{
 }
 
 #tmttest > div > div {
+    width: 100%;
+    height: 100%;
+}
+
+#tmttest > div > div > div {
     display: flex;
     justify-content: center;
 }
