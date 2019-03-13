@@ -10,8 +10,43 @@
                     </div>
 
                     <div class="card-body d-flex justify-content-around align-items-center">
-                        <div class="d-flex flex-column justify-content-around align-items-center" style="width:50%;height:50%;">
-                            <h1 id="stroop-test-msg" class="h-100 w-100" style="text-align: center;">Naciśnij start aby rozpocząć test!</h1>
+                        <div class="d-flex flex-column" style="font-size:1em;" id="testinstruction">
+                            <span>
+                                Na ekranie pojawią się nazwy kolorów napisane różnymi kolorami czcionki. Będą się one pojawiały w ramce lub poza nią. <br/>
+                                Twoim zadaniem jest wciśnięcie klawisza <strong>Z</strong>-zielony, <strong>C</strong>-czerwony, <strong>B</strong>-biały, <strong>N</strong>-niebieski w zależności od tego jakim kolorem czcionki zapisane zostało słowo gdy pojawi się ono poza ramką, a gdy słowo pojawi się w ramce Twoim zadaniem będzie zaznaczyć nazwę koloru, a nie kolor czcionki.<br/><br/>
+                            </span>
+                            <div class="d-flex flex-row justify-content-around">
+                                <div class="d-flex flex-column">
+                                    <span class="text-center w-100">
+                                        Na przykład gdy na ekranie pojawi się:
+                                    </span>
+                                    <span class="text-center w-100" style="color:green;">NIEBIESKI</span>
+                                    <span class="d-flex justify-content-center">
+                                        <div style="height: 50px; width: 100px; border: 1px solid black; color:green;"></div>
+                                    </span>
+                                    <span class="text-center w-100">
+                                        To Twoim zadaniem  będzie wciśnięcie klawisza Z<br/><br/><br/>
+                                    </span>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <span class="text-center w-100">
+                                        Na przykład gdy na ekranie pojawi się:
+                                    </span>
+                                    <span class="text-center w-100" style="color:green;">&nbsp;</span>
+                                    <span class="d-flex justify-content-center">
+                                        <div style="height: 50px; width: 100px; border: 1px solid black; color:green;">NIEBIESKI</div>
+                                    </span>
+                                    <span class="text-center w-100">
+                                        To Twoim zadaniem  będzie wciśnięcie klawisza N<br/><br/><br/>
+                                    </span>
+                                </div>
+                            </div>
+                            <span>
+                                Wykonaj zadanie najszybciej jak potrafisz! Do dzieła!
+                            </span>
+                        </div>
+                        <div class="d-flex flex-column justify-content-around align-items-center" style="width:50%;height:50%;display:none;" id="testfield">
+                            <h1 id="stroop-test-msg" class="h-100 w-100" style="text-align: center;"></h1>
                             <h1 id="stroop-test-boxmsg" class="h-100 w-100" style="text-align: center; display:none;">-</h1>
                         </div>
                     </div>
@@ -70,6 +105,8 @@
         };
 
         function testStart() {
+            $('#testinstruction').attr('style','display:none !important');
+            $('#testfield').css({'display':'block'});
             console.log('Test START');
             testStatus = true;
             nextAnswer = null;

@@ -11,7 +11,20 @@
 
                     <div class="card-body d-flex justify-content-around align-items-center">
                         <div class="">
-                            <h1 id="stroop-test-msg">Naciśnij start aby rozpocząć test!</h1>
+                            <h1 id="stroop-test-msg">
+                                <div class="d-flex flex-column" style="font-size:0.5em;">
+                                    <span>
+                                        Na ekranie pojawią się nazwy kolorów zapisane niezgodnym do nich kolorem czcionki. <br/>
+                                        Twoim zadaniem jest wciśnięcie klawisza <strong>Z</strong>-zielony, <strong>C</strong>-czerwony, <strong>B</strong>-biały, <strong>N</strong>-niebieski w zależności od tego jakim kolorem czcionki zapisane zostało słowo.<br/><br/>
+                                    </span>
+                                    <span class="text-center w-100">
+                                        Na przykład gdy na ekranie pojawi się:<br/><span style="color:red;">ZIELONY</span><br/>To Twoim zadaniem będzie wciśnięcie klawisza C<br/><br/><br/>
+                                    </span>
+                                    <span>
+                                        Wykonaj zadanie najszybciej jak potrafisz! Do dzieła!
+                                    </span>
+                                </div>
+                            </h1>
                         </div>
                     </div>
 
