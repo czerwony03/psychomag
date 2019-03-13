@@ -11,7 +11,13 @@
 
                     <div class="card-body d-flex justify-content-around align-items-center">
                         <div class="">
-                            <h1 id="stroop-test-msg">Naciśnij start aby rozpocząć test!</h1>
+                            <h1 id="stroop-test-msg">
+                                <span style="font-size:0.6em;" class="d-flex text-center">
+                                    Na ekranie będą pojawiać się strzałki w prawo lub w lewo.<br/><br/>
+                                    Gdy zobaczysz strzałkę w lewo naciśnij B,<br/>a gdy zobaczysz strzałkę w prawo naciśnij klawisz N.<br/><br/>
+                                    Chociaż jest to proste zadanie, musisz jednak przyzwyczaić się do szybkiego reagowania.<br/>Musisz odpowiedzieć w ciągu 500 ms (pół sekundy).
+                                </span>
+                            </h1>
                         </div>
                     </div>
 
