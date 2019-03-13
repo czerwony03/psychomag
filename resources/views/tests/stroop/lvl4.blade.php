@@ -34,14 +34,14 @@
                                     </span>
                                     <span class="text-center w-100" style="color:green;">&nbsp;</span>
                                     <span class="d-flex justify-content-center">
-                                        <div style="height: 50px; width: 100px; border: 1px solid black; color:green;">NIEBIESKI</div>
+                                        <div class="text-center" style="height: 50px; width: 100px; border: 1px solid black; color:green;">NIEBIESKI</div>
                                     </span>
                                     <span class="text-center w-100">
                                         To Twoim zadaniem  będzie wciśnięcie klawisza N<br/><br/><br/>
                                     </span>
                                 </div>
                             </div>
-                            <span>
+                            <span class="text-center">
                                 Wykonaj zadanie najszybciej jak potrafisz! Do dzieła!
                             </span>
                         </div>
