@@ -15,6 +15,8 @@ Route::get('/', 'HomeController@index')->name('index');
 
 Auth::routes();
 
+Route::get('/ankieta', 'PollController@poll_view')->name('poll_view');
+
 Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/stroop1', 'HomeController@stroop1')->name('stroop1');
 Route::get('/stroop2', 'HomeController@stroop2')->name('stroop2');

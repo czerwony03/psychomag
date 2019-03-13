@@ -85,19 +85,21 @@
                 </div>
 
                 <div class="links">
-                    Stroop:<br/>
-                    <a href="{{ url('stroop1') }}">LVL 1</a>
-                    <a href="{{ url('stroop2') }}">LVL 2</a>
-                    <a href="{{ url('stroop3') }}">LVL 3</a>
-                    <a href="{{ url('stroop4') }}">LVL 4</a>
+                    Ankieta:<br/>
+                    <a href="{{ route('poll_view') }}">Link</a>
+                    <br/>Stroop:<br/>
+                    <a href="{{ route('stroop1') }}">LVL 1</a>
+                    <a href="{{ route('stroop2') }}">LVL 2</a>
+                    <a href="{{ route('stroop3') }}">LVL 3</a>
+                    <a href="{{ route('stroop4') }}">LVL 4</a>
                     <br/>TMT:<br/>
-                    <a href="{{ url('tmtA') }}">Test A</a>
-                    <a href="{{ url('tmtB') }}">Test B</a>
+                    <a href="{{ route('tmtA') }}">Test A</a>
+                    <a href="{{ route('tmtB') }}">Test B</a>
                     <br/>GO/NO GO:<br/>
-                    <a href="{{ url('go_nogo_one') }}">#1</a>
-                    <a href="{{ url('go_nogo_two') }}">#2</a>
+                    <a href="{{ route('go_nogo_one') }}">#1</a>
+                    <a href="{{ route('go_nogo_two') }}">#2</a>
                     <br/>WCST:<br/>
-                    <a href="{{ url('wcst') }}">Link</a>
+                    <a href="{{ route('wcst') }}">Link</a>
                 </div>
             </div>
         </div>

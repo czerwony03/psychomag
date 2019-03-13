@@ -16,7 +16,7 @@
                             <p>Dostajesz dwie talie kart, z których każda zawiera 64 karty. Twoim zadaniem jest posortowanie tych kart na 4 różne stosy. Prawidłowa odpowiedź zależy od reguły, ale nie wiesz, co to za reguła. Po każdej próbie powiemy Ci, czy masz rację. Po umieszczeniu karty na właściwym stosie na ekranie pojawi się słowo "DOBRZE". A kiedy położysz kartę na niewłaściwym stosie, pojawi się słowo "ŹLE". Celem jest zdobycie jak największej ilości kart na stos "prawidłowy".</p>
 
                             <p>Użyj myszki aby dokonać wyboru.</p>
-                            <p style="font-weight: bold;">Naciśnij SPACJE aby rozpocząć...</p>
+                            <p style="font-weight: bold;"><button class="btn btn-success" id="wcst-start">START</button></p>
                         </div>
 
                         <div id="WCSTkeyCards" style="display: none;">
