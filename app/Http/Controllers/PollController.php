@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\PollRequest;
 
 class PollController extends Controller
 {
@@ -135,6 +135,10 @@ class PollController extends Controller
         ]
     ];
     public function poll_view() {
+        return view('poll',["questions" => self::$questions]);
+    }
+
+    public function poll_send(PollRequest $request) {
         return view('poll',["questions" => self::$questions]);
     }
 }
