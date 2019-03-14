@@ -30,4 +30,13 @@ class PollRequest extends FormRequest
         }
         return $rules;
     }
+
+    public function messages()
+    {
+        $messages = [];
+        foreach(PollController::$questions as $id => $question) {
+            $messages['question_'.$id.'.required'] = 'Musisz odpowiedzieć na pytanie nr. '.($id+1).'!';
+        }
+        return $messages;
+    }
 }
