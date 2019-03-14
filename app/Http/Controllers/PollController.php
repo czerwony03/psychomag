@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PollRequest;
+use App\Models\Test;
+use App\Models\Tester;
+use Illuminate\Support\Facades\DB;
 
 class PollController extends Controller
 {
@@ -139,6 +142,25 @@ class PollController extends Controller
     }
 
     public function poll_send(PollRequest $request) {
-        return view('poll',["questions" => self::$questions]);
+        $pollSum = 0;
+        foreach(self::$questions as $question_id => $question) {
+            $answer = strval($request->get('question_'.$question_id));
+            if(0 <= $answer && $answer <= 3) {
+                $pollSum+=$answer;
+            }
+        }
+        $result = [
+            "poll_sum" => $pollSum
+        ];
+        $poll = Test::where('code','=','poll')->first();
+        $tester = new Tester();
+        $tester->save();
+        $tester->tests()->save($poll,[
+            'result'=>json_encode($result),
+            'created_at'=>DB::raw('CURRENT_TIMESTAMP'),
+            'updated_at'=>DB::raw('CURRENT_TIMESTAMP')
+        ]);
+
+        return 'UUID: '.$tester->uuid.'<br/>Suma: '.$pollSum;
     }
 }

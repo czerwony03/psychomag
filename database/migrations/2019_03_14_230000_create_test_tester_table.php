@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserTestTable extends Migration
+class CreateTestTesterTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,12 @@ class CreateUserTestTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_test', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+        Schema::create('test_tester', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('tester_id');
+            $table->foreign('tester_id')->references('id')->on('testers');
             $table->unsignedInteger('test_id');
             $table->foreign('test_id')->references('id')->on('tests');
-            $table->smallInteger('errors');
-            $table->smallInteger('attempts');
-            $table->integer('avg_time');
-            $table->integer('min_time');
-            $table->integer('max_time');
             $table->text('result');
             $table->timestamps();
         });
@@ -36,6 +31,6 @@ class CreateUserTestTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_test');
+        Schema::dropIfExists('test_tester');
     }
 }
