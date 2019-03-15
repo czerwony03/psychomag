@@ -6,6 +6,7 @@ use App\Http\Requests\PollRequest;
 use App\Models\Test;
 use App\Models\Tester;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class PollController extends Controller
 {
@@ -161,6 +162,8 @@ class PollController extends Controller
             'updated_at'=>DB::raw('CURRENT_TIMESTAMP')
         ]);
 
-        return 'UUID: '.$tester->uuid.'<br/>Suma: '.$pollSum;
+        Session::put('tester_uuid',$tester->uuid);
+
+        return redirect(route('test.stroop',["id" => 1]));
     }
 }

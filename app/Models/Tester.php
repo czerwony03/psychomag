@@ -2,9 +2,18 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Webpatser\Uuid\Uuid;
 
+/**
+ * Class Tester
+ * @package App\Models
+ *
+ * @property string $uuid
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ */
 class Tester extends Model
 {
     public static function boot()
