@@ -13,7 +13,6 @@ class UpdateTestsTable extends Migration
      */
     public function up()
     {
-        DB::table('user_test')->delete();
         DB::table('tests')->delete();
         DB::table('tests')->insert([
                 [
