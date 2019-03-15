@@ -8,8 +8,9 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
         <!-- Styles -->
+
         <style>
             html, body {
                 background-color: #fff;
@@ -85,21 +86,7 @@
                 </div>
 
                 <div class="links">
-                    Ankieta:<br/>
-                    <a href="{{ route('poll_view') }}">Link</a>
-                    <br/>Stroop:<br/>
-                    <a href="{{ route('stroop1') }}">LVL 1</a>
-                    <a href="{{ route('stroop2') }}">LVL 2</a>
-                    <a href="{{ route('stroop3') }}">LVL 3</a>
-                    <a href="{{ route('stroop4') }}">LVL 4</a>
-                    <br/>TMT:<br/>
-                    <a href="{{ route('tmtA') }}">Test A</a>
-                    <a href="{{ route('tmtB') }}">Test B</a>
-                    <br/>GO/NO GO:<br/>
-                    <a href="{{ route('go_nogo_one') }}">#1</a>
-                    <a href="{{ route('go_nogo_two') }}">#2</a>
-                    <br/>WCST:<br/>
-                    <a href="{{ route('wcst') }}">Link</a>
+                    <a href="{{route('poll_view')}}"><button class="btn btn-success"><h1>START</h1></button></a>
                 </div>
             </div>
         </div>

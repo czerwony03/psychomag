@@ -26,6 +26,7 @@ class Tester extends Model
 
     public function tests()
     {
-        return $this->belongsToMany(Test::class,'test_tester');
+        return $this->belongsToMany(Test::class,'test_tester')
+            ->withPivot('result','created_at','updated_at');
     }
 }

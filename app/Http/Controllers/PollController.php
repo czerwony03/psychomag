@@ -164,6 +164,6 @@ class PollController extends Controller
 
         Session::put('tester_uuid',$tester->uuid);
 
-        return redirect(route('test.stroop',["id" => 1]));
+        return redirect(route('test.next'));
     }
 }

@@ -19,6 +19,8 @@ Route::get('/ankieta', 'PollController@poll_view')->name('poll_view');
 Route::post('/poll_send', 'PollController@poll_send')->name('poll_send');
 
 Route::prefix('test')->name('test.')->middleware('tester')->group(function () {
+    Route::post('save','TestResultController@save')->name('save');
+    Route::get('next','TestResultController@next')->name('next');
     Route::get('stroop/{id}','TestController@stroop')->name('stroop');
 });
 
