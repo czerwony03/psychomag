@@ -21,7 +21,7 @@ Route::post('/poll_send', 'PollController@poll_send')->name('poll_send');
 Route::prefix('test')->name('test.')->middleware('tester')->group(function () {
     Route::post('save','TestResultController@save')->name('save');
     Route::get('next','TestResultController@next')->name('next');
-    Route::get('stroop/{id}','TestController@stroop')->name('stroop');
+    Route::get('finish','TestResultController@finish')->name('finish');
 });
 
 Route::middleware('auth')->group(function () {

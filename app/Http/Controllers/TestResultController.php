@@ -39,7 +39,7 @@ class TestResultController extends Controller
         if(!$nextTest instanceof Test && $tester->tests->count()<$tests->count()) {
             return response('Wystąpił błąd podczas wyświetlania kolejnego testu!',403);
         } else if(!$nextTest instanceof Test && $tester->tests->count()>=$tests->count()) {
-            return response('Strona finałowa nie została jeszcze przygotowana',404);
+            return response()->redirectTo(route('test.finish'));
         } else {
             $testView = 'tests.';
             $testViewVariables = [
@@ -80,5 +80,12 @@ class TestResultController extends Controller
             }
             return response()->view($testView,$testViewVariables);
         }
+    }
+
+    public function finish(Request $request)
+    {
+        $tester = $request->testerModel;
+        $testsResults = $tester->tests->sortBy('pivot.test_id');
+        return response()->view('tests.finish',compact('tester','testsResults'));
     }
 }
