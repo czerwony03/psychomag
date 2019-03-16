@@ -20,13 +20,13 @@
                         </div>
 
                         <div id="WCSTkeyCards" style="display: none;">
-                            <img src="img/111.jpg" height="150" width="150" style="margin:50px 10px 50px 50px; cursor:pointer; cursor:hand;"
+                            <img src="{{ asset('img/111.jpg') }}" height="150" width="150" style="margin:50px 10px 50px 50px; cursor:pointer; cursor:hand;"
                                  onClick="WCSTcardPressed(1);">			<!-- card: 1 circle red -->
-                            <img src="img/222.jpg" height="150" width="150" style="margin:50px 10px; cursor:pointer;cursor:hand;"
+                            <img src="{{ asset('img/222.jpg') }}" height="150" width="150" style="margin:50px 10px; cursor:pointer;cursor:hand;"
                                  onClick="WCSTcardPressed(2);">					<!-- card: 2 diamonds green -->
-                            <img src="img/333.jpg" height="150" width="150" style="margin:50px 10px; cursor:pointer;cursor:hand;"
+                            <img src="{{ asset('img/333.jpg') }}" height="150" width="150" style="margin:50px 10px; cursor:pointer;cursor:hand;"
                                  onClick="WCSTcardPressed(3);">					<!-- card: 3 stars blue -->
-                            <img src="img/444.jpg" height="150" width="150" style="margin:50px 10px; cursor:pointer;cursor:hand;"
+                            <img src="{{ asset('img/444.jpg') }}" height="150" width="150" style="margin:50px 10px; cursor:pointer;cursor:hand;"
                                  onClick="WCSTcardPressed(4);">					<!-- card: 4 triangles yelow -->
                         </div>
 
@@ -65,6 +65,12 @@
             }
         });
 
+        $('#wcst-start').click(function() {
+            if (state == 'WCSTinstructions') {
+                WCSTstateTransitionToGame();
+            }
+        });
+
         function WCSTcardPressed(cardNumber) {
             if ((state == 'WCSTgame') && (isKeyPressed == 0)) {
                 WCSTgameKeyPressed(cardNumber);
@@ -78,7 +84,7 @@
             state = 'WCSTgame';
 
             card = cards[0];
-            document.getElementById('WCSTresponseCard').src = "img/" + card.toString() + ".jpg";
+            document.getElementById('WCSTresponseCard').src = window.location.origin + "/img/" + card.toString() + ".jpg";
             $('#WCSTresponseCard').show();
             startTime = Date.now();
         }
@@ -96,6 +102,16 @@
                 list.append('<li>Błędów: ' + totalWrong + '</li>');
                 list.append('<li>Błędy perseweracyjne: ' + totalRepeatedWrong + '</li>');
             }, 1000);
+
+            post('{{ route('test.save') }}', {
+                'test_code': '{{ $test_code }}',
+                'test_result': JSON.stringify({
+                    'attempts': total,
+                    'errors': totalWrong,
+                    'repeated_errors': totalRepeatedWrong,
+                    'completed_decks': seriesNumber
+                })
+            });
         }
 
         // The cards needed to be sorted into the piles are in a pseudo random order that repeats itself twice (as if we had 2 identical decks of cards)
@@ -216,7 +232,7 @@
             if ((cards.length!=0) && (seriesNumber<6) && (total<128)) {
 
                 card = cards[0];
-                document.getElementById('WCSTresponseCard').src = "img/" + card.toString() + ".jpg";
+                document.getElementById('WCSTresponseCard').src = window.location.origin + "/img/" + card.toString() + ".jpg";
 
                 setTimeout(function() {
                     $("#WCSTresponseCard").show();
@@ -240,4 +256,5 @@
         }
 
     </script>
+    @include('shared.js')
 @endsection
