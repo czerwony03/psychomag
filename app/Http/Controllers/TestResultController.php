@@ -27,6 +27,7 @@ class TestResultController extends Controller
             'created_at'=>DB::raw('CURRENT_TIMESTAMP'),
             'updated_at'=>DB::raw('CURRENT_TIMESTAMP')
         ]);
+        $tester->save();
 
         return response()->redirectTo(route('test.next'));
     }
