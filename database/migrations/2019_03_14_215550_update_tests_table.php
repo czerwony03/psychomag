@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Test;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class UpdateTestsTable extends Migration
 {
@@ -21,39 +21,39 @@ class UpdateTestsTable extends Migration
                 ],
                 [
                     'name' => 'Test kolorów stroop\'a - LVL 1',
-                    'code' => 'stroop1'
+                    'code' => Test::TEST_STROOP_1
                 ],
                 [
                     'name' => 'Test kolorów stroop\'a - LVL 2',
-                    'code' => 'stroop2'
+                    'code' => Test::TEST_STROOP_2
                 ],
                 [
                     'name' => 'Test kolorów stroop\'a - LVL 3',
-                    'code' => 'stroop3'
+                    'code' => Test::TEST_STROOP_3
                 ],
                 [
                     'name' => 'Test kolorów stroop\'a - LVL 4',
-                    'code' => 'stroop4'
+                    'code' => Test::TEST_STROOP_4
                 ],
                 [
                     'name' => 'TMT ver A',
-                    'code' => 'tmt_a'
+                    'code' => Test::TEST_TMT_A
                 ],
                 [
                     'name' => 'TMT ver B',
-                    'code' => 'tmt_b'
+                    'code' => Test::TEST_TMT_B
                 ],
                 [
                     'name' => 'GO / NO GO ver 1',
-                    'code' => 'go_nogo1'
+                    'code' => Test::TEST_GO_NOGO_1
                 ],
                 [
                     'name' => 'GO / NO GO ver 2',
-                    'code' => 'go_nogo2'
+                    'code' => Test::TEST_GO_NOGO_2
                 ],
                 [
                     'name' => 'Wisconsin Card Sorting Test',
-                    'code' => 'wcst'
+                    'code' => Test::TEST_WCST
                 ]
             ]
         );

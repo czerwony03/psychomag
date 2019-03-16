@@ -44,33 +44,33 @@ class TestResultController extends Controller
             $testView = 'tests.';
             $testViewVariables = [];
             switch($nextTest->code) {
-                case 'stroop1':
+                case Test::TEST_STROOP_1:
                     $testView.='stroop.lvl1';
                     break;
-                case 'stroop2':
+                case Test::TEST_STROOP_2:
                     $testView.='stroop.lvl2';
                     break;
-                case 'stroop3':
+                case Test::TEST_STROOP_3:
                     $testView.='stroop.lvl3';
                     break;
-                case 'stroop4':
+                case Test::TEST_STROOP_4:
                     $testView.='stroop.lvl4';
                     break;
-                case 'tmt_a':
+                case Test::TEST_TMT_A:
                     $testView.='tmt';
                     $testViewVariables["ver"]='A';
                     break;
-                case 'tmt_b':
+                case Test::TEST_TMT_B:
                     $testView.='tmt';
                     $testViewVariables["ver"]='B';
                     break;
-                case 'go_nogo1':
+                case Test::TEST_GO_NOGO_1:
                     $testView.='go_nogo.one';
                     break;
-                case 'go_nogo2':
+                case Test::TEST_GO_NOGO_2:
                     $testView.='go_nogo.two';
                     break;
-                case 'wcst':
+                case Test::TEST_WCST:
                     $testView.='wcst';
                     break;
                 default:
