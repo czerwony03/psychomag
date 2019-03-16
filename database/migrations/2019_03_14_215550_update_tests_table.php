@@ -16,7 +16,7 @@ class UpdateTestsTable extends Migration
         DB::table('tests')->delete();
         DB::table('tests')->insert([
                 [
-                    'name' => 'Ankieta',
+                    'name' => 'Ankieta - Depresja',
                     'code' => 'poll'
                 ],
                 [
