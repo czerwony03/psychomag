@@ -102434,6 +102434,27 @@ function (_React$Component) {
       _this.openModal();
     });
 
+    _defineProperty(_assertThisInitialized(_this), "post", function (path, params, method) {
+      method = method || "post";
+      params._token = document.head.querySelector('meta[name="csrf-token"]').content;
+      var form = document.createElement("form");
+      form.setAttribute("method", method);
+      form.setAttribute("action", path);
+
+      for (var key in params) {
+        if (params.hasOwnProperty(key)) {
+          var hiddenField = document.createElement("input");
+          hiddenField.setAttribute("type", "hidden");
+          hiddenField.setAttribute("name", key);
+          hiddenField.setAttribute("value", params[key]);
+          form.appendChild(hiddenField);
+        }
+      }
+
+      document.body.appendChild(form);
+      form.submit();
+    });
+
     _defineProperty(_assertThisInitialized(_this), "renderResult", function () {
       var time = _this.data.stop - _this.data.start;
       var times = time / 1000;
@@ -102480,6 +102501,28 @@ function (_React$Component) {
       this.setState({
         modalIsOpen: false
       });
+      var time = this.data.stop - this.data.start;
+      var times = time / 1000;
+      var sum = this.data.events.length;
+      var err = 0;
+      var ok = 0;
+      var events = this.data.events;
+      events.forEach(function (data) {
+        if (data.type === "OK") {
+          ok++;
+        } else if (data.type === "Err") {
+          err++;
+        }
+      });
+      this.post(window.location.origin + '/test/save', {
+        'test_code': 'tmt_' + this.props.ver.toLowerCase(),
+        'test_result': JSON.stringify({
+          'errors': err,
+          'ok': ok,
+          'time': time,
+          'data': events
+        })
+      });
     }
   }, {
     key: "componentWillMount",
@@ -102513,9 +102556,9 @@ function (_React$Component) {
           return _this2.subtitle = subtitle;
         }
       }, "Wyniki testu TMT ", this.props.ver), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, this.state.modalIsOpen && this.renderResult()), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
-        className: "btn btn-danger",
+        className: "btn btn-success",
         onClick: this.closeModal
-      }, "Zamknij")));
+      }, "Dalej")));
     }
   }]);
 

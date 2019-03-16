@@ -53,6 +53,29 @@ class TMT extends React.Component {
 
     closeModal() {
         this.setState({modalIsOpen: false});
+
+        const time = (this.data.stop - this.data.start);
+        const times = (time/1000);
+        const sum = this.data.events.length;
+        let err = 0;
+        let ok = 0;
+        const events = this.data.events;
+        events.forEach(data => {
+            if(data.type === "OK") {
+                ok++;
+            } else if(data.type === "Err") {
+                err++;
+            }
+        });
+        this.post(window.location.origin + '/test/save',{
+            'test_code': 'tmt_' + this.props.ver.toLowerCase(),
+            'test_result': JSON.stringify({
+                'errors': err,
+                'ok': ok,
+                'time': time,
+                'data': events
+            })
+        });
     }
 
     componentWillMount() {
@@ -87,6 +110,30 @@ class TMT extends React.Component {
         console.log("Wyniki testu:");
         console.log(this.data);
         this.openModal();
+    };
+
+    post = (path, params, method) => {
+        method = method || "post";
+
+        params._token=document.head.querySelector('meta[name="csrf-token"]').content;
+
+        var form = document.createElement("form");
+        form.setAttribute("method", method);
+        form.setAttribute("action", path);
+
+        for(var key in params) {
+            if(params.hasOwnProperty(key)) {
+                var hiddenField = document.createElement("input");
+                hiddenField.setAttribute("type", "hidden");
+                hiddenField.setAttribute("name", key);
+                hiddenField.setAttribute("value", params[key]);
+
+                form.appendChild(hiddenField);
+            }
+        }
+
+        document.body.appendChild(form);
+        form.submit();
     };
 
     renderResult = () => {
@@ -125,7 +172,7 @@ class TMT extends React.Component {
                 onError={this.handleError}
                 onMiss={this.handleMiss}
                 onCompleted={this.handleCompleted}
-        />
+            />
             <Modal
                 isOpen={this.state.modalIsOpen}
                 onAfterOpen={this.afterOpenModal}
@@ -139,7 +186,7 @@ class TMT extends React.Component {
                         this.state.modalIsOpen && this.renderResult()
                     }
                 </div>
-                <button className='btn btn-danger' onClick={this.closeModal}>Zamknij</button>
+                <button className='btn btn-success' onClick={this.closeModal}>Dalej</button>
             </Modal>
         </div>;
     }
