@@ -10,7 +10,9 @@
                     <ul>
                         <li>ID: {{$tester->id}}</li>
                         <li>UUID: {{$tester->uuid}}</li>
+                        <li>Wykonane testy: {{$tester->tests->count()}}/{{$tests->count()}}</li>
                         <li>Utworzony: {{$tester->created_at}}</li>
+                        <li>Zaktualizowany: {{$tester->updated_at}}</li>
                     </ul>
                 </div>
             </div>

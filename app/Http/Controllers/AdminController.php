@@ -27,6 +27,7 @@ class AdminController extends Controller
             return response('',404);
         }
         $testsResults = $tester->tests->sortBy('pivot.test_id');
-        return response()->view('tests.finish',compact('tester','testsResults'));
+        $tests=Test::all();
+        return response()->view('tests.finish',compact('tester','testsResults','tests'));
     }
 }
