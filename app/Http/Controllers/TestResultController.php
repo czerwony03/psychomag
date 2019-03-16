@@ -42,7 +42,9 @@ class TestResultController extends Controller
             return response('Strona finałowa nie została jeszcze przygotowana',404);
         } else {
             $testView = 'tests.';
-            $testViewVariables = [];
+            $testViewVariables = [
+                "test_code" => $nextTest->code
+            ];
             switch($nextTest->code) {
                 case Test::TEST_STROOP_1:
                     $testView.='stroop.lvl1';
