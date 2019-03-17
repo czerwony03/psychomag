@@ -36,7 +36,7 @@ class TestResultController extends Controller
     {
         $tests = Test::all();
         $tester = $request->testerModel;
-        $nextTest = Test::where('id','>',$tester->tests->sortBy('order')->last()->id)->first();
+        $nextTest = Test::where('order','>',$tester->tests->sortBy('order')->last()->order)->orderBy('order')->first();
         if(!$nextTest instanceof Test && $tester->tests->count()<$tests->count()) {
             return response('Wystąpił błąd podczas wyświetlania kolejnego testu!',403);
         } else if(!$nextTest instanceof Test && $tester->tests->count()>=$tests->count()) {
