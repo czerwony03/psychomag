@@ -4,6 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Test
+ * @package App\Models
+ *
+ * @property integer $id
+ * @property string $name
+ * @property string $code
+ * @property integer $order
+ */
 class Test extends Model
 {
     public const TEST_STROOP_1 = 'stroop1';
@@ -17,7 +26,7 @@ class Test extends Model
     public const TEST_WCST = 'wcst';
 
     protected $fillable = [
-        'name', 'code'
+        'name', 'code', 'order'
     ];
 
     public $timestamps = false;
