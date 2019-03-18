@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <div class="card w-100 mb-3 bg-info">
-                <div class="card-header">Dane użytkownika</div>
+            <div class="card w-100 mb-3">
+                <div class="card-header bg-info">Dane użytkownika</div>
                 <div class="card-body">
                     <ul>
                         <li>ID: {{$tester->id}}</li>

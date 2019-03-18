@@ -79,6 +79,9 @@ class TestResultController extends Controller
                 case PollPumController::CODE:
                     return response()->redirectTo(route('poll_pum_view'));
                     break;
+                case PollPersonalDataController::CODE:
+                    return response()->redirectTo(route('poll_personal_data_view'));
+                    break;
                 default:
                     return response('Wystąpił błąd podczas wyświetlania kolejnego testu!',403);
             }
