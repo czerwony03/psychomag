@@ -31,7 +31,7 @@ Route::prefix('test')->name('test.')->middleware('tester')->group(function () {
     Route::get('finish','TestResultController@finish')->name('finish');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::prefix('auth')->name('auth.')->middleware('auth')->group(function () {
     Route::get('home', 'AdminController@home')->name('home');
