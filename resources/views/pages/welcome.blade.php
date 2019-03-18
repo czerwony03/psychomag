@@ -87,6 +87,9 @@
 
                 <div class="links">
                     <a href="{{route('poll_view')}}"><button class="btn btn-success"><h1>START</h1></button></a>
+                    @if(Session::has('tester_uuid'))
+                        <a href="{{route('test.next')}}"><button class="btn btn-info"><h1>KONTYNUUJ</h1></button></a>
+                    @endif
                 </div>
             </div>
         </div>
