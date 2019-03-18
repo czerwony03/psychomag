@@ -20,7 +20,7 @@ class UpdateTestsTable3 extends Migration
             ],
             [
                 'name' => 'Ankieta - metryczka',
-                'code' => 'poll_personal_data',
+                'code' => \App\Http\Controllers\PollPersonalDataController::CODE,
                 'order' => (\App\Models\Test::all()->count()+2)
             ]
         ]);

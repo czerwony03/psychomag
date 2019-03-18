@@ -16,8 +16,13 @@ Route::get('/', 'HomeController@index')->name('index');
 Route::prefix('poll')->name('poll_')->group(function () {
     Route::get('depression', 'PollDepressionController@poll_view')->name('view');
     Route::post('depression/send', 'PollDepressionController@poll_send')->name('send');
-    Route::get('pum', 'PollPumController@poll_view')->name('pum_view')->middleware('tester');
-    Route::post('pum/send', 'PollPumController@poll_send')->name('pum_send')->middleware('tester');
+
+    Route::middleware('tester')->group(function() {
+        Route::get('pum', 'PollPumController@poll_view')->name('pum_view');
+        Route::post('pum/send', 'PollPumController@poll_send')->name('pum_send');
+        Route::get('personal_data', 'PollPersonalDataController@poll_view')->name('personal_data_view');
+        Route::post('personal_data/send', 'PollPersonalDataController@poll_send')->name('personal_data_send');
+    });
 });
 
 Route::prefix('test')->name('test.')->middleware('tester')->group(function () {
