@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 
 class PollDepressionController extends Controller
 {
+    const CODE = 'poll_depression';
     static $questions = [
         [
             "Nie jestem smutny ani przygnębiony.",
@@ -154,7 +155,7 @@ class PollDepressionController extends Controller
         $result = [
             "poll_sum" => $pollSum
         ];
-        $poll = Test::where('code','=','poll')->first();
+        $poll = Test::where('code','=',self::CODE)->first();
         $tester = new Tester();
         $tester->save();
         $tester->tests()->save($poll,[

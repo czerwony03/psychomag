@@ -13,8 +13,12 @@
 
 Route::get('/', 'HomeController@index')->name('index');
 
-Route::get('/poll/depression', 'PollDepressionController@poll_view')->name('poll_view');
-Route::post('/poll/depression/send', 'PollDepressionController@poll_send')->name('poll_send');
+Route::prefix('poll')->name('poll_')->group(function () {
+    Route::get('depression', 'PollDepressionController@poll_view')->name('view');
+    Route::post('depression/send', 'PollDepressionController@poll_send')->name('send');
+    Route::get('pum', 'PollPumController@poll_view')->name('pum_view')->middleware('tester');
+    Route::post('pum/send', 'PollPumController@poll_send')->name('pum_send')->middleware('tester');
+});
 
 Route::prefix('test')->name('test.')->middleware('tester')->group(function () {
     Route::post('save','TestResultController@save')->name('save');

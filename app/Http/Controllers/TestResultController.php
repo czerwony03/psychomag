@@ -21,7 +21,7 @@ class TestResultController extends Controller
         }
 
         $test = Test::where('code','=',$request->get('test_code'))->first();
-        $tester = $request->testerModel;
+        $tester = $request->get('testerModel');
         $tester->tests()->save($test,[
             'result'=>$request->get('test_result'),
             'created_at'=>DB::raw('CURRENT_TIMESTAMP'),
@@ -35,7 +35,7 @@ class TestResultController extends Controller
     public function next(Request $request)
     {
         $tests = Test::all();
-        $tester = $request->testerModel;
+        $tester = $request->get('testerModel');
         $nextTest = Test::where('order','>',$tester->tests->sortBy('order')->last()->order)->orderBy('order')->first();
         if(!$nextTest instanceof Test && $tester->tests->count()<$tests->count()) {
             return response('Wystąpił błąd podczas wyświetlania kolejnego testu!',403);
@@ -76,6 +76,9 @@ class TestResultController extends Controller
                 case Test::TEST_WCST:
                     $testView.='wcst';
                     break;
+                case PollPumController::CODE:
+                    return response()->redirectTo(route('poll_pum_view'));
+                    break;
                 default:
                     return response('Wystąpił błąd podczas wyświetlania kolejnego testu!',403);
             }
@@ -85,7 +88,7 @@ class TestResultController extends Controller
 
     public function finish(Request $request)
     {
-        $tester = $request->testerModel;
+        $tester = $request->get('testerModel');
         $testsResults = $tester->tests->sortBy('pivot.test_id');
         $tests=Test::all();
         return response()->view('tests.finish',compact('tester','testsResults','tests'));

@@ -21,7 +21,7 @@ class CheckForTesterUuid
             $tester = Tester::where('uuid','=',session()->get('tester_uuid'))->first();
             if($tester instanceof Tester) {
                 $hasTester = true;
-                $request->testerModel = $tester;
+                $request->attributes->add(['testerModel' => $tester]);
             }
         }
         if($hasTester) {

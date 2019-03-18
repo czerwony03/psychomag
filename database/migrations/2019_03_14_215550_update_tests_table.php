@@ -17,7 +17,7 @@ class UpdateTestsTable extends Migration
         DB::table('tests')->insert([
                 [
                     'name' => 'Ankieta - Depresja',
-                    'code' => 'poll'
+                    'code' => \App\Http\Controllers\PollDepressionController::CODE
                 ],
                 [
                     'name' => 'Test kolorów stroop\'a - LVL 1',
