@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PollRequest;
+use App\Http\Requests\PollDepressionRequest;
 use App\Models\Test;
 use App\Models\Tester;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
-class PollController extends Controller
+class PollDepressionController extends Controller
 {
     static $questions = [
         [
@@ -140,10 +140,10 @@ class PollController extends Controller
         ]
     ];
     public function poll_view() {
-        return view('poll',["questions" => self::$questions]);
+        return view('polls.depression',["questions" => self::$questions]);
     }
 
-    public function poll_send(PollRequest $request) {
+    public function poll_send(PollDepressionRequest $request) {
         $pollSum = 0;
         foreach(self::$questions as $question_id => $question) {
             $answer = strval($request->get('question_'.$question_id));

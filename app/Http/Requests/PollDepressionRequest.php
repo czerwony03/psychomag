@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Controllers\PollController;
+use App\Http\Controllers\PollDepressionController;
 use Illuminate\Foundation\Http\FormRequest;
 
-class PollRequest extends FormRequest
+class PollDepressionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class PollRequest extends FormRequest
     public function rules()
     {
         $rules = [];
-        foreach(PollController::$questions as $id => $question) {
+        foreach(PollDepressionController::$questions as $id => $question) {
             $rules['question_'.$id] = 'required';
         }
         return $rules;
@@ -34,7 +34,7 @@ class PollRequest extends FormRequest
     public function messages()
     {
         $messages = [];
-        foreach(PollController::$questions as $id => $question) {
+        foreach(PollDepressionController::$questions as $id => $question) {
             $messages['question_'.$id.'.required'] = 'Musisz odpowiedzieć na pytanie nr. '.($id+1).'!';
         }
         return $messages;
