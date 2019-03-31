@@ -17,14 +17,14 @@ class CheckForTesterUuid
     public function handle($request, Closure $next)
     {
         $hasTester = false;
-        if(session()->has('tester_uuid')) {
-            $tester = Tester::where('uuid','=',session()->get('tester_uuid'))->first();
-            if($tester instanceof Tester) {
+        if (session()->has('tester_uuid')) {
+            $tester = Tester::where('uuid', '=', session()->get('tester_uuid'))->first();
+            if ($tester instanceof Tester) {
                 $hasTester = true;
                 $request->attributes->add(['testerModel' => $tester]);
             }
         }
-        if($hasTester) {
+        if ($hasTester) {
             return $next($request);
         } else {
             return redirect(route('poll_view'));

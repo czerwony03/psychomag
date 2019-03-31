@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
 class PollDepressionController extends Controller
 {
     const CODE = 'poll_depression';
-    static $questions = [
+    public static $questions = [
         [
             "Nie jestem smutny ani przygnębiony.",
             "Odczuwam często smutek, przygnębienie.",
@@ -140,31 +140,33 @@ class PollDepressionController extends Controller
             "Utraciłem wszelkie zainteresowania sprawami seksualnymi."
         ]
     ];
-    public function poll_view() {
-        return view('polls.depression',["questions" => self::$questions]);
+    public function poll_view()
+    {
+        return view('polls.depression', ["questions" => self::$questions]);
     }
 
-    public function poll_send(PollDepressionRequest $request) {
+    public function poll_send(PollDepressionRequest $request)
+    {
         $pollSum = 0;
-        foreach(self::$questions as $question_id => $question) {
+        foreach (self::$questions as $question_id => $question) {
             $answer = strval($request->get('question_'.$question_id));
-            if(0 <= $answer && $answer <= 3) {
+            if (0 <= $answer && $answer <= 3) {
                 $pollSum+=$answer;
             }
         }
         $result = [
             "poll_sum" => $pollSum
         ];
-        $poll = Test::where('code','=',self::CODE)->first();
+        $poll = Test::where('code', '=', self::CODE)->first();
         $tester = new Tester();
         $tester->save();
-        $tester->tests()->save($poll,[
+        $tester->tests()->save($poll, [
             'result'=>json_encode($result),
             'created_at'=>DB::raw('CURRENT_TIMESTAMP'),
             'updated_at'=>DB::raw('CURRENT_TIMESTAMP')
         ]);
 
-        Session::put('tester_uuid',$tester->uuid);
+        Session::put('tester_uuid', $tester->uuid);
 
         return redirect(route('test.next'));
     }

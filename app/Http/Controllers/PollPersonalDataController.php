@@ -30,22 +30,24 @@ class PollPersonalDataController extends Controller
             ]
         ]
     ];
-    public function poll_view() {
-        return view('polls.personal_data',["questions" => self::QUESTIONS]);
+    public function poll_view()
+    {
+        return view('polls.personal_data', ["questions" => self::QUESTIONS]);
     }
 
-    public function poll_send(PollPersonalDataRequest $request) {
+    public function poll_send(PollPersonalDataRequest $request)
+    {
         $answers = [];
-        foreach(self::QUESTIONS as $question_id => $question) {
+        foreach (self::QUESTIONS as $question_id => $question) {
             $answer = strval($request->get('question_'.$question_id));
-            if(0 <= $answer && $answer <= count($question['a'])) {
+            if (0 <= $answer && $answer <= count($question['a'])) {
                 $answers["question_".($question_id+1)]=$answer;
             }
         }
-        $poll = Test::where('code','=',self::CODE)->first();
+        $poll = Test::where('code', '=', self::CODE)->first();
         $tester = $request->get('testerModel');
         $tester->save();
-        $tester->tests()->save($poll,[
+        $tester->tests()->save($poll, [
             'result'=>json_encode($answers),
             'created_at'=>DB::raw('CURRENT_TIMESTAMP'),
             'updated_at'=>DB::raw('CURRENT_TIMESTAMP')

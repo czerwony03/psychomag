@@ -25,7 +25,7 @@ class PollPumRequest extends FormRequest
     public function rules()
     {
         $rules = [];
-        foreach(PollPumController::$questions as $id => $question) {
+        foreach (PollPumController::$questions as $id => $question) {
             $rules['question_'.$id] = 'required';
         }
         return $rules;
@@ -34,7 +34,7 @@ class PollPumRequest extends FormRequest
     public function messages()
     {
         $messages = [];
-        foreach(PollPumController::$questions as $id => $question) {
+        foreach (PollPumController::$questions as $id => $question) {
             $messages['question_'.$id.'.required'] = 'Musisz odpowiedzieć na pytanie nr. '.($id+1).'!';
         }
         return $messages;

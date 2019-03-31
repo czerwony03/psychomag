@@ -17,12 +17,12 @@ class TestResultController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response('Wystąpił błąd podczas zapisu danych!',403);
+            return response('Wystąpił błąd podczas zapisu danych!', 403);
         }
 
-        $test = Test::where('code','=',$request->get('test_code'))->first();
+        $test = Test::where('code', '=', $request->get('test_code'))->first();
         $tester = $request->get('testerModel');
-        $tester->tests()->save($test,[
+        $tester->tests()->save($test, [
             'result'=>$request->get('test_result'),
             'created_at'=>DB::raw('CURRENT_TIMESTAMP'),
             'updated_at'=>DB::raw('CURRENT_TIMESTAMP')
@@ -36,17 +36,17 @@ class TestResultController extends Controller
     {
         $tests = Test::all();
         $tester = $request->get('testerModel');
-        $nextTest = Test::where('order','>',$tester->tests->sortBy('order')->last()->order)->orderBy('order')->first();
-        if(!$nextTest instanceof Test && $tester->tests->count()<$tests->count()) {
-            return response('Wystąpił błąd podczas wyświetlania kolejnego testu!',403);
-        } else if(!$nextTest instanceof Test && $tester->tests->count()>=$tests->count()) {
+        $nextTest = Test::where('order', '>', $tester->tests->sortBy('order')->last()->order)->orderBy('order')->first();
+        if (!$nextTest instanceof Test && $tester->tests->count()<$tests->count()) {
+            return response('Wystąpił błąd podczas wyświetlania kolejnego testu!', 403);
+        } elseif (!$nextTest instanceof Test && $tester->tests->count()>=$tests->count()) {
             return response()->redirectTo(route('test.finish'));
         } else {
             $testView = 'tests.';
             $testViewVariables = [
                 "test_code" => $nextTest->code
             ];
-            switch($nextTest->code) {
+            switch ($nextTest->code) {
                 case Test::TEST_STROOP_1:
                     $testView.='stroop.lvl1';
                     break;
@@ -83,9 +83,9 @@ class TestResultController extends Controller
                     return response()->redirectTo(route('poll_personal_data_view'));
                     break;
                 default:
-                    return response('Wystąpił błąd podczas wyświetlania kolejnego testu!',403);
+                    return response('Wystąpił błąd podczas wyświetlania kolejnego testu!', 403);
             }
-            return response()->view($testView,$testViewVariables);
+            return response()->view($testView, $testViewVariables);
         }
     }
 
@@ -94,6 +94,6 @@ class TestResultController extends Controller
         $tester = $request->get('testerModel');
         $testsResults = $tester->tests->sortBy('pivot.test_id');
         $tests=Test::all();
-        return response()->view('tests.finish',compact('tester','testsResults','tests'));
+        return response()->view('tests.finish', compact('tester', 'testsResults', 'tests'));
     }
 }

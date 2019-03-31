@@ -33,6 +33,6 @@ class Test extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class,'user_test');
+        return $this->belongsToMany(User::class, 'user_test');
     }
 }

@@ -14,7 +14,7 @@ class UpdateTestsOrderValue extends Migration
     {
         $tests = Test::all();
         $order = 0;
-        foreach($tests as $test) {
+        foreach ($tests as $test) {
             $order++;
             $test->order = $order;
             $test->save();

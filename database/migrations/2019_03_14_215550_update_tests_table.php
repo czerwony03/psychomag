@@ -14,7 +14,8 @@ class UpdateTestsTable extends Migration
     public function up()
     {
         DB::table('tests')->delete();
-        DB::table('tests')->insert([
+        DB::table('tests')->insert(
+            [
                 [
                     'name' => 'Ankieta - Depresja',
                     'code' => \App\Http\Controllers\PollDepressionController::CODE
