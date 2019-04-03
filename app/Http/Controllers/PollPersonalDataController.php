@@ -89,6 +89,7 @@ class PollPersonalDataController extends Controller
             ]
         ],
         [
+            "type" => "2",
             "q" => "Zaznacz substancje (lub ich zamienniki), które zażywałaś/ zażywałeś w ciągu ostatniego miesiąca",
             "a" => [
                 "Alkohol",
@@ -125,9 +126,13 @@ class PollPersonalDataController extends Controller
     {
         $answers = [];
         foreach (self::QUESTIONS as $question_id => $question) {
-            $answer = strval($request->get('question_'.$question_id));
-            if (0 <= $answer && $answer <= count($question['a'])) {
-                $answers["question_".($question_id+1)]=$answer;
+            if(is_array($request->get('question_'.$question_id))) {
+                $answers["question_".($question_id+1)]=$request->get('question_'.$question_id);
+            } else {
+                $answer = strval($request->get('question_'.$question_id));
+                if (0 <= $answer && $answer <= count($question['a'])) {
+                    $answers["question_".($question_id+1)]=$answer;
+                }
             }
         }
         $poll = Test::where('code', '=', self::CODE)->first();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Http\Controllers\PollPersonalDataController;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PollPersonalDataRequest extends FormRequest
@@ -23,15 +24,19 @@ class PollPersonalDataRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        $rules = [];
+        foreach (PollPersonalDataController::QUESTIONS as $id => $question) {
+            $rules['question_'.$id] = 'required';
+        }
+        return $rules;
     }
 
     public function messages()
     {
-        return [
-            //
-        ];
+        $messages = [];
+        foreach (PollPersonalDataController::QUESTIONS as $id => $question) {
+            $messages['question_'.$id.'.required'] = 'Musisz odpowiedzieć na pytanie nr. '.($id+1).'!';
+        }
+        return $messages;
     }
 }

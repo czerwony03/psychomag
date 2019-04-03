@@ -27,20 +27,27 @@
                                 <h5>{{ $question["q"] }}</h5>
                                 @if(!empty($question["type"]) && $question["type"]==1)
                                     <div class="d-inline-flex">
-                                        @endif
-                                        @foreach($question["a"] as $answer_id => $answer)
-                                            @php ($question_answer_text = 'question_'.$question_id.'_radio_'.$answer_id)
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="{{$question_text}}" id="{{$question_answer_text}}" value="{{ $answer_id }}"{{ null !== old($question_text) && old($question_text) == $answer_id ? ' checked' : ''}}>
-                                                <label class="form-check-label" for="{{$question_answer_text}}">
-                                                    {{ $answer }}
-                                                    @if(!empty($question["type"]) && $question["type"]==1)
-                                                        &nbsp;&nbsp;
-                                                    @endif
-                                                </label>
+                                        @elseif(!empty($question["type"]) && $question["type"]==2)
+                                            <div style="column-count:2;">
+                                                @endif
+                                                @foreach($question["a"] as $answer_id => $answer)
+                                                    @php ($question_answer_text = 'question_'.$question_id.'_radio_'.$answer_id)
+                                                    <div class="form-check">
+                                                        @if(!empty($question["type"]) && $question["type"]==2)
+                                                            <input class="form-check-input" type="checkbox" name="{{$question_text}}[]" id="{{$question_answer_text}}" value="{{ $answer_id }}"{{ null !== old($question_text) && collect(old($question_text))->contains($answer_id) ? ' checked' : ''}}>
+                                                        @else
+                                                            <input class="form-check-input" type="radio" name="{{$question_text}}" id="{{$question_answer_text}}" value="{{ $answer_id }}"{{ null !== old($question_text) && old($question_text) == $answer_id ? ' checked' : ''}}>                                                @endif
+                                                        <label class="form-check-label" for="{{$question_answer_text}}">
+                                                            {{ $answer }}
+                                                            @if(!empty($question["type"]) && $question["type"]==1)
+                                                                &nbsp;&nbsp;
+                                                            @endif
+                                                        </label>
+                                                    </div>
+                                                @endforeach
+                                                @if(!empty($question["type"]) && $question["type"]==1)
                                             </div>
-                                        @endforeach
-                                        @if(!empty($question["type"]) && $question["type"]==1)
+                                        @elseif(!empty($question["type"]) && $question["type"]==2)
                                     </div>
                                 @endif
                             </div>

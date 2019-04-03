@@ -29,7 +29,16 @@
                             @endphp
                             @foreach($jsonDecoded as $key=>$val)
                                 <li>
-                                    {{$key}}: {{$val}}
+                                    {{$key}}:
+                                    @if(is_array($val))
+                                        <ul>
+                                            @foreach($val as $val2)
+                                                <li>{{$val2}}</li>
+                                            @endforeach
+                                        </ul>
+                                    @else
+                                        {{$val}}
+                                    @endif
                                 </li>
                             @endforeach
                         </ul>
