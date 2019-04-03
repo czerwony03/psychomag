@@ -25,13 +25,24 @@
                             <div class="card-header">Pytanie {{ $question_id+1 }}</div>
                             <div class="card-body" id="{{$question_text}}">
                                 <h5>{{ $question["q"] }}</h5>
-                                @foreach($question["a"] as $answer_id => $answer)
-                                    @php ($question_answer_text = 'question_'.$question_id.'_radio_'.$answer_id)
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="{{$question_text}}" id="{{$question_answer_text}}" value="{{ $answer_id }}"{{ null !== old($question_text) && old($question_text) == $answer_id ? ' checked' : ''}}>
-                                        <label class="form-check-label" for="{{$question_answer_text}}">{{ $answer }}</label>
+                                @if(!empty($question["type"]) && $question["type"]==1)
+                                    <div class="d-inline-flex">
+                                        @endif
+                                        @foreach($question["a"] as $answer_id => $answer)
+                                            @php ($question_answer_text = 'question_'.$question_id.'_radio_'.$answer_id)
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="{{$question_text}}" id="{{$question_answer_text}}" value="{{ $answer_id }}"{{ null !== old($question_text) && old($question_text) == $answer_id ? ' checked' : ''}}>
+                                                <label class="form-check-label" for="{{$question_answer_text}}">
+                                                    {{ $answer }}
+                                                    @if(!empty($question["type"]) && $question["type"]==1)
+                                                        &nbsp;&nbsp;
+                                                    @endif
+                                                </label>
+                                            </div>
+                                        @endforeach
+                                        @if(!empty($question["type"]) && $question["type"]==1)
                                     </div>
-                                @endforeach
+                                @endif
                             </div>
                             @if($errors->first('question_'.$question_id))
                                 <div class="card-footer" style="color:red;">

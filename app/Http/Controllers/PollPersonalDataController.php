@@ -17,16 +17,102 @@ class PollPersonalDataController extends Controller
                 "Kobieta"
             ]
         ], [
+            "type" => "1",
             "q" => "Wiek",
             "a" => [
-                "<13",
-                "13-18",
-                "19-24",
-                "25-30",
-                "31-36",
-                "37-42",
-                "43-48",
-                ">49"
+                "<18",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30",
+                "31",
+                "32",
+                "33",
+                "34",
+                "35",
+                ">35"
+            ]
+        ],
+        [
+            "q" => "Zażywam marichuanę",
+            "a" => [
+                "Tak",
+                "Nie",
+            ]
+        ],
+        [
+            "q" => "Wykształcenie",
+            "a" => [
+                "Podstawowe",
+                "Gimnazjalne",
+                "Zawodowe",
+                "Średnie",
+                "Techniczne",
+                "Wyższe",
+            ]
+        ],
+        [
+            "q" => "Stan cywilny",
+            "a" => [
+                "Panna / Kawaler",
+                "W związku małżeńskim",
+                "Rozwiedziony / Rozwiedziona",
+                "Wdowiec / Wdowa",
+            ]
+        ],
+        [
+            "q" => "Miejsce zamieszkania",
+            "a" => [
+                "Wieś",
+                "Miasto do 50 tys. Mieszkańców",
+                "Miasto do 100 tys. Mieszkańców",
+                "Miasto do 250 tys. Mieszkańców",
+                "Miasto powyżej 250 tys. Mieszkańców",
+            ]
+        ],
+        [
+            "q" => "Zatrudnienie",
+            "a" => [
+                "Praca (stała/dorywcza)",
+                "Nauka",
+                "Brak pracy i nauki",
+                "Renta ",
+            ]
+        ],
+        [
+            "q" => "Zaznacz substancje (lub ich zamienniki), które zażywałaś/ zażywałeś w ciągu ostatniego miesiąca",
+            "a" => [
+                "Alkohol",
+                "Nikotyna",
+                "Nadużywanie leków",
+                "Dopalacze",
+                "Amfetamina",
+                "Metaamfetamina",
+                "Heroina",
+                "Kodeina",
+                "Opium",
+                "Morfina",
+                "Kokaina",
+                "Barbiturany",
+                "Ketamina",
+                "Benzodiazepiny",
+                "Buprenofina",
+                "Substancje wziewne",
+                "LSD",
+                "Metylofenidat",
+                "Anaboliki",
+                "Ecstasy",
+                "Grzyby halucynogenne",
+                "inne",
             ]
         ]
     ];
