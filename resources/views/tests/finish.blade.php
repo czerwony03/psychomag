@@ -5,6 +5,16 @@
     <div class="row">
         <div class="col">
             <div class="card w-100 mb-3">
+                <div class="card-header bg-success">Zakończenie</div>
+                <div class="card-body">
+                    Bardzo dziękuje za wzięcie udziału w badaniu!
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card w-100 mb-3">
                 <div class="card-header bg-info">Dane użytkownika</div>
                 <div class="card-body">
                     <ul>
