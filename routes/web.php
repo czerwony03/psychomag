@@ -13,7 +13,7 @@
 
 Route::get('/', 'HomeController@index')->name('index');
 
-Route::prefix('poll')->name('poll_')->group(function () {
+Route::prefix('poll')->name('poll_')->middleware('pc.only')->group(function () {
     Route::get('depression', 'PollDepressionController@poll_view')->name('view');
     Route::post('depression/send', 'PollDepressionController@poll_send')->name('send');
 

@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\CheckForTesterUuid;
 use App\Http\Middleware\HttpsProtocol;
+use App\Http\Middleware\OnlyPC;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -60,6 +61,7 @@ class Kernel extends HttpKernel
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'pc.only' => OnlyPC::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'tester' => CheckForTesterUuid::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
