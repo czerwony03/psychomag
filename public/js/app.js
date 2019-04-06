@@ -102593,9 +102593,9 @@ function (_React$Component2) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, this.props.ver === 'A' && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Na ekranie zobaczysz punkty oznaczone cyframi od 1 do 25.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "Twoim zadaniem b\u0119dzie jak najszybsze po\u0142\u0105czenie w kolejno\u015Bci numerycznej tych punkt\xF3w.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
-        src: "https://i.imgur.com/bxzdbcr.png"
+        src: "https://psychomag.redtm.pl/img/TMT_A.png"
       }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null)), this.props.ver === 'B' && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Na ekranie zobaczysz punkty oznaczone cyframi od 1 do 25 i litery od A do L.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "Twoim zadaniem b\u0119dzie jak najszybsze po\u0142\u0105czenie lini\u0105 ci\u0105g\u0142\u0105 naprzemiennie cyfry z kolejnymi literami alfabetu wed\u0142ug wzoru:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "1-A-2-B-3-C-4-D itd.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
-        src: "https://i.imgur.com/HdlAMh3.png"
+        src: "https://psychomag.redtm.pl/img/TMT_B.png"
       }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         className: "btn btn-success",
         onClick: this.renderTest.bind(this)
@@ -102935,7 +102935,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   "width": 535,
   "height": 465,
-  "diameter": 44,
+  "diameter": 50,
   "tokens": [{
     "x": 332,
     "y": 263,
@@ -103053,7 +103053,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   "width": 535,
   "height": 465,
-  "diameter": 44,
+  "diameter": 50,
   "tokens": [{
     "x": 332,
     "y": 263,
@@ -103171,7 +103171,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   "width": 535,
   "height": 465,
-  "diameter": 44,
+  "diameter": 50,
   "tokens": [{
     "x": 52,
     "y": 53,
@@ -103289,7 +103289,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   "width": 535,
   "height": 465,
-  "diameter": 44,
+  "diameter": 50,
   "tokens": [{
     "x": 332,
     "y": 263,
@@ -103407,7 +103407,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   "width": 535,
   "height": 465,
-  "diameter": 44,
+  "diameter": 50,
   "tokens": [{
     "x": 332,
     "y": 263,
@@ -103525,7 +103525,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   "width": 535,
   "height": 465,
-  "diameter": 44,
+  "diameter": 50,
   "tokens": [{
     "x": 52,
     "y": 53,

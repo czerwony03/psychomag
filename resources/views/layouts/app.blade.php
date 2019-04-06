@@ -75,6 +75,12 @@
         <main class="py-4 h-75">
             @yield('content')
         </main>
+
+        <footer class="footer">
+            <div class="container">
+                <span class="text-muted float-right"><strong>Created by <a href="https://redtm.pl/" style="color:red;">RedTM.pl</a></strong></span>
+            </div>
+        </footer>
     </div>
 </body>
 

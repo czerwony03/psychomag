@@ -206,7 +206,7 @@ class TMTBox extends React.Component {
                 this.props.ver === 'A' &&
                 <span>Na ekranie zobaczysz punkty oznaczone cyframi od 1 do 25.<br/>
                 Twoim zadaniem będzie jak najszybsze połączenie w kolejności numerycznej tych punktów.<br/>
-                <img src='https://i.imgur.com/bxzdbcr.png'/><br/>
+                <img src='https://psychomag.redtm.pl/img/TMT_A.png'/><br/>
                 </span>
             }
             {
@@ -214,7 +214,7 @@ class TMTBox extends React.Component {
                 <span>Na ekranie zobaczysz punkty oznaczone cyframi od 1 do 25 i litery od A do L.<br/>
                 Twoim zadaniem będzie jak najszybsze połączenie linią ciągłą naprzemiennie cyfry z kolejnymi literami alfabetu według wzoru:<br/>
                 1-A-2-B-3-C-4-D itd.<br/>
-                <img src='https://i.imgur.com/HdlAMh3.png'/><br/>
+                <img src='https://psychomag.redtm.pl/img/TMT_B.png'/><br/>
                 </span>
             }<br/>
             <button className='btn btn-success' onClick={this.renderTest.bind(this)}>START</button>

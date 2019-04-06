@@ -3,7 +3,7 @@
 @section('content')
     <div class="container h-100">
         <div class="row justify-content-center h-100">
-            <div class="col-md-12">
+            <div class="col-md-12 h-100">
                 <div class="card bg-dark text-white" style="height:100%;">
                     <div class="card-header">
                         <span id="stroop-title">Test #2 - TMT {{$ver}}</span>

@@ -36,7 +36,8 @@
                                                         @if(!empty($question["type"]) && $question["type"]==2)
                                                             <input class="form-check-input" type="checkbox" name="{{$question_text}}[]" id="{{$question_answer_text}}" value="{{ $answer_id }}"{{ null !== old($question_text) && collect(old($question_text))->contains($answer_id) ? ' checked' : ''}}>
                                                         @else
-                                                            <input class="form-check-input" type="radio" name="{{$question_text}}" id="{{$question_answer_text}}" value="{{ $answer_id }}"{{ null !== old($question_text) && old($question_text) == $answer_id ? ' checked' : ''}}>                                                @endif
+                                                            <input class="form-check-input" type="radio" name="{{$question_text}}" id="{{$question_answer_text}}" value="{{ $answer_id }}"{{ null !== old($question_text) && old($question_text) == $answer_id ? ' checked' : ''}}>
+                                                        @endif
                                                         <label class="form-check-label" for="{{$question_answer_text}}">
                                                             {{ $answer }}
                                                             @if(!empty($question["type"]) && $question["type"]==1)

@@ -1,7 +1,7 @@
 export default {
     "width": 535,
     "height": 465,
-    "diameter": 44,
+    "diameter": 50,
     "tokens": [{
         "x": 332,
         "y": 263,
