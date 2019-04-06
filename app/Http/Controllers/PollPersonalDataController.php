@@ -126,7 +126,7 @@ class PollPersonalDataController extends Controller
     {
         $answers = [];
         foreach (self::QUESTIONS as $question_id => $question) {
-            if(is_array($request->get('question_'.$question_id))) {
+            if (is_array($request->get('question_'.$question_id))) {
                 $answers["question_".($question_id+1)]=$request->get('question_'.$question_id);
             } else {
                 $answer = strval($request->get('question_'.$question_id));
