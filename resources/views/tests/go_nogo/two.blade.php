@@ -67,12 +67,15 @@
             results = [],
             errors = null,
             maxTime = 60,
+            dontCountTime = 15,
             minTimeout = 1000,
             maxTimeout = 2000,
             actionTimeout,
             currentTimeout,
             testTimeout,
-            resultClearTimeout;
+            resultClearTimeout,
+            startCountingTimeout,
+            startCounting;
 
         function testStart() {
             console.log('Test START');
@@ -86,9 +89,14 @@
             testTimeout=null;
             currentTimeout=null;
             resultClearTimeout=null;
+            startCountingTimeout=null;
+            startCounting=null;
             clearMsg();
             $('#stroop-title').addClass('live');
 
+            startCountingTimeout = setTimeout(function () {
+                startCounting = true;
+            }, dontCountTime*1000);
             testTimeout = setTimeout(testTimeoutFinish, maxTime*1000);
             setNextTimeout();
         }
@@ -98,6 +106,9 @@
             }
             if(currentTimeout) {
                 clearTimeout(currentTimeout);
+            }
+            if(startCountingTimeout) {
+                clearTimeout(startCountingTimeout);
             }
             currentTimeout = null;
             console.log('Test STOP');
@@ -168,10 +179,12 @@
                 calculatedTime = new Date().getTime()-timeStart;
             }
             actionTimeout=null;
-            results.push([
-                status,
-                calculatedTime
-            ]);
+            if(startCounting) {
+                results.push([
+                    status,
+                    calculatedTime
+                ]);
+            }
             if(!status) {
                 errors++;
                 if(calculatedTime === 500) {

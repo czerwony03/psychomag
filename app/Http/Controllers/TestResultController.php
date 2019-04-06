@@ -44,7 +44,9 @@ class TestResultController extends Controller
         } else {
             $testView = 'tests.';
             $testViewVariables = [
-                "test_code" => $nextTest->code
+                "test_code" => $nextTest->code,
+                "ver" => '',
+                "prepare" => false,
             ];
             switch ($nextTest->code) {
                 case Test::TEST_STROOP_1:
@@ -59,9 +61,19 @@ class TestResultController extends Controller
                 case Test::TEST_STROOP_4:
                     $testView.='stroop.lvl4';
                     break;
+                case Test::TEST_TMT_A_PREPARE:
+                    $testView.='tmt';
+                    $testViewVariables["ver"]='A';
+                    $testViewVariables["prepare"]=true;
+                    break;
                 case Test::TEST_TMT_A:
                     $testView.='tmt';
                     $testViewVariables["ver"]='A';
+                    break;
+                case Test::TEST_TMT_B_PREPARE:
+                    $testView.='tmt';
+                    $testViewVariables["ver"]='B';
+                    $testViewVariables["prepare"]=true;
                     break;
                 case Test::TEST_TMT_B:
                     $testView.='tmt';

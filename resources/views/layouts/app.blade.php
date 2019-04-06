@@ -38,6 +38,9 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
+                                <a style="color:red" class="nav-link" href="https://redtm.pl">{{ __('RedTM.pl') }}</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Logowanie') }}</a>
                             </li>
                             @if (Route::has('register'))
@@ -75,12 +78,6 @@
         <main class="py-4 h-75">
             @yield('content')
         </main>
-
-        <footer class="footer">
-            <div class="container">
-                <span class="text-muted float-right"><strong>Created by <a href="https://redtm.pl/" style="color:red;">RedTM.pl</a></strong></span>
-            </div>
-        </footer>
     </div>
 </body>
 

@@ -19,7 +19,9 @@ class Test extends Model
     public const TEST_STROOP_2 = 'stroop2';
     public const TEST_STROOP_3 = 'stroop3';
     public const TEST_STROOP_4 = 'stroop4';
+    public const TEST_TMT_A_PREPARE = 'tmt_a_prepare';
     public const TEST_TMT_A = 'tmt_a';
+    public const TEST_TMT_B_PREPARE = 'tmt_b_prepare';
     public const TEST_TMT_B = 'tmt_b';
     public const TEST_GO_NOGO_1 = 'go_nogo1';
     public const TEST_GO_NOGO_2 = 'go_nogo2';

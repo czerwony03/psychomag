@@ -196,7 +196,6 @@
                 Object.keys(colorButtons).map(function(indexMap) {
                     let index = parseInt(indexMap,10);
                     if(index === key) {
-                        console.log('pasuje');
                         if(nextAnswer !== undefined && nextAnswer !== null && nextAnswer === colorButtons[index]) {
                             attemptResult(true);
                         } else if(nextAnswer !== undefined && nextAnswer !== null) {

@@ -102235,6 +102235,28 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/img/TMT_A.png":
+/*!*********************************!*\
+  !*** ./resources/img/TMT_A.png ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/TMT_A.png?b6d03b0073f3dd47a566a0fc02a43bb6";
+
+/***/ }),
+
+/***/ "./resources/img/TMT_B.png":
+/*!*********************************!*\
+  !*** ./resources/img/TMT_B.png ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/TMT_B.png?9b4390483598b394363f31c47dab4131";
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -102335,6 +102357,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-modal */ "./node_modules/react-modal/lib/index.js");
 /* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_modal__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _TMT_CustomTrails__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TMT/CustomTrails */ "./resources/js/components/TMT/CustomTrails.js");
+/* harmony import */ var _img_TMT_A_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../img/TMT_A.png */ "./resources/img/TMT_A.png");
+/* harmony import */ var _img_TMT_A_png__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_img_TMT_A_png__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _img_TMT_B_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../img/TMT_B.png */ "./resources/img/TMT_B.png");
+/* harmony import */ var _img_TMT_B_png__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_img_TMT_B_png__WEBPACK_IMPORTED_MODULE_6__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -102354,6 +102380,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -102515,7 +102543,7 @@ function (_React$Component) {
         }
       });
       this.post(window.location.origin + '/test/save', {
-        'test_code': 'tmt_' + this.props.ver.toLowerCase(),
+        'test_code': 'tmt_' + this.props.ver.toLowerCase() + (this.props.prepare ? '_prepare' : ''),
         'test_result': JSON.stringify({
           'errors': err,
           'ok': ok,
@@ -102567,6 +102595,7 @@ function (_React$Component) {
 
 _defineProperty(TMT, "propTypes", {
   part: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string.isRequired,
+  prepare: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string.isRequired,
   ver: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string.isRequired
 });
 
@@ -102585,6 +102614,7 @@ function (_React$Component2) {
     key: "renderTest",
     value: function renderTest() {
       react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(TMT, {
+        prepare: this.props.prepare,
         ver: this.props.ver,
         part: this.props.part
       }), document.getElementById('tmttest'));
@@ -102592,10 +102622,10 @@ function (_React$Component2) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, this.props.ver === 'A' && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Na ekranie zobaczysz punkty oznaczone cyframi od 1 do 25.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "Twoim zadaniem b\u0119dzie jak najszybsze po\u0142\u0105czenie w kolejno\u015Bci numerycznej tych punkt\xF3w.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
-        src: "https://psychomag.redtm.pl/img/TMT_A.png"
-      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null)), this.props.ver === 'B' && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Na ekranie zobaczysz punkty oznaczone cyframi od 1 do 25 i litery od A do L.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "Twoim zadaniem b\u0119dzie jak najszybsze po\u0142\u0105czenie lini\u0105 ci\u0105g\u0142\u0105 naprzemiennie cyfry z kolejnymi literami alfabetu wed\u0142ug wzoru:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "1-A-2-B-3-C-4-D itd.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
-        src: "https://psychomag.redtm.pl/img/TMT_B.png"
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, !this.props.prepare && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "To by\u0142a tylko rozgrzewka. Teraz pora na prawdziwy test!", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null)), this.props.ver === 'A' && this.props.prepare && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Na ekranie zobaczysz punkty oznaczone cyframi od 1 do 25.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "Twoim zadaniem b\u0119dzie jak najszybsze po\u0142\u0105czenie w kolejno\u015Bci numerycznej tych punkt\xF3w.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+        src: _img_TMT_A_png__WEBPACK_IMPORTED_MODULE_5___default.a
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null)), this.props.ver === 'B' && this.props.prepare && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Na ekranie zobaczysz punkty oznaczone cyframi od 1 do 25 i litery od A do L.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "Twoim zadaniem b\u0119dzie jak najszybsze po\u0142\u0105czenie lini\u0105 ci\u0105g\u0142\u0105 naprzemiennie cyfry z kolejnymi literami alfabetu wed\u0142ug wzoru:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "1-A-2-B-3-C-4-D itd.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+        src: _img_TMT_B_png__WEBPACK_IMPORTED_MODULE_6___default.a
       }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         className: "btn btn-success",
         onClick: this.renderTest.bind(this)
@@ -102607,6 +102637,7 @@ function (_React$Component2) {
 }(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
 
 _defineProperty(TMTBox, "propTypes", {
+  prepare: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string.isRequired,
   part: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string.isRequired,
   ver: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string.isRequired
 });
@@ -102616,13 +102647,18 @@ _defineProperty(TMTBox, "propTypes", {
 if (tmttest) {
   var trails = [];
 
-  if (tmttest.dataset.ver === 'A') {
+  if (tmttest.dataset.ver === 'A' && tmttest.dataset.prepare) {
+    trails = ["A_PREPARE"];
+  } else if (tmttest.dataset.ver === 'B' && tmttest.dataset.prepare) {
+    trails = ["B_PREPARE"];
+  } else if (tmttest.dataset.ver === 'A') {
     trails = ["A25V1", "A25V2", "A25V3"];
   } else if (tmttest.dataset.ver === 'B') {
     trails = ["B13ALV1", "B13ALV2", "B13ALV3"];
   }
 
   react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(TMTBox, {
+    prepare: tmttest.dataset.prepare,
     ver: tmttest.dataset.ver,
     part: trails[Math.floor(Math.random() * trails.length)]
   }), document.getElementById('tmttest'));
@@ -102645,12 +102681,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _orcatech_react_neuropsych_trails__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_orcatech_react_neuropsych_trails__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Marker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Marker */ "./resources/js/components/TMT/Marker.js");
 /* harmony import */ var _Theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Theme */ "./resources/js/components/TMT/Theme.js");
-/* harmony import */ var _Trails_A25V1__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Trails/A25V1 */ "./resources/js/components/TMT/Trails/A25V1.js");
-/* harmony import */ var _Trails_A25V2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Trails/A25V2 */ "./resources/js/components/TMT/Trails/A25V2.js");
-/* harmony import */ var _Trails_A25V3__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Trails/A25V3 */ "./resources/js/components/TMT/Trails/A25V3.js");
-/* harmony import */ var _Trails_B13ALV1__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Trails/B13ALV1 */ "./resources/js/components/TMT/Trails/B13ALV1.js");
-/* harmony import */ var _Trails_B13ALV2__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Trails/B13ALV2 */ "./resources/js/components/TMT/Trails/B13ALV2.js");
-/* harmony import */ var _Trails_B13ALV3__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Trails/B13ALV3 */ "./resources/js/components/TMT/Trails/B13ALV3.js");
+/* harmony import */ var _Trails_A_PREPARE__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Trails/A_PREPARE */ "./resources/js/components/TMT/Trails/A_PREPARE.js");
+/* harmony import */ var _Trails_B_PREPARE__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Trails/B_PREPARE */ "./resources/js/components/TMT/Trails/B_PREPARE.js");
+/* harmony import */ var _Trails_A25V1__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Trails/A25V1 */ "./resources/js/components/TMT/Trails/A25V1.js");
+/* harmony import */ var _Trails_A25V2__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Trails/A25V2 */ "./resources/js/components/TMT/Trails/A25V2.js");
+/* harmony import */ var _Trails_A25V3__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Trails/A25V3 */ "./resources/js/components/TMT/Trails/A25V3.js");
+/* harmony import */ var _Trails_B13ALV1__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Trails/B13ALV1 */ "./resources/js/components/TMT/Trails/B13ALV1.js");
+/* harmony import */ var _Trails_B13ALV2__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Trails/B13ALV2 */ "./resources/js/components/TMT/Trails/B13ALV2.js");
+/* harmony import */ var _Trails_B13ALV3__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Trails/B13ALV3 */ "./resources/js/components/TMT/Trails/B13ALV3.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -102666,6 +102704,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -102698,26 +102738,32 @@ function (_Trails) {
 
     _defineProperty(_assertThisInitialized(_this), "trail", function () {
       switch (_this.props.part) {
+        case "A_PREPARE":
+          return _Trails_A_PREPARE__WEBPACK_IMPORTED_MODULE_4__["default"];
+
+        case "B_PREPARE":
+          return _Trails_B_PREPARE__WEBPACK_IMPORTED_MODULE_5__["default"];
+
         case "A25V1":
-          return _Trails_A25V1__WEBPACK_IMPORTED_MODULE_4__["default"];
+          return _Trails_A25V1__WEBPACK_IMPORTED_MODULE_6__["default"];
 
         case "A25V2":
-          return _Trails_A25V2__WEBPACK_IMPORTED_MODULE_5__["default"];
+          return _Trails_A25V2__WEBPACK_IMPORTED_MODULE_7__["default"];
 
         case "A25V3":
-          return _Trails_A25V3__WEBPACK_IMPORTED_MODULE_6__["default"];
+          return _Trails_A25V3__WEBPACK_IMPORTED_MODULE_8__["default"];
 
         case "B13ALV1":
-          return _Trails_B13ALV1__WEBPACK_IMPORTED_MODULE_7__["default"];
+          return _Trails_B13ALV1__WEBPACK_IMPORTED_MODULE_9__["default"];
 
         case "B13ALV2":
-          return _Trails_B13ALV2__WEBPACK_IMPORTED_MODULE_8__["default"];
+          return _Trails_B13ALV2__WEBPACK_IMPORTED_MODULE_10__["default"];
 
         case "B13ALV3":
-          return _Trails_B13ALV3__WEBPACK_IMPORTED_MODULE_9__["default"];
+          return _Trails_B13ALV3__WEBPACK_IMPORTED_MODULE_11__["default"];
 
         default:
-          return _Trails_A25V1__WEBPACK_IMPORTED_MODULE_4__["default"];
+          return _Trails_A25V1__WEBPACK_IMPORTED_MODULE_6__["default"];
       }
     });
 
@@ -103277,6 +103323,48 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/TMT/Trails/A_PREPARE.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/TMT/Trails/A_PREPARE.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  "width": 535,
+  "height": 465,
+  "diameter": 50,
+  "tokens": [{
+    "x": 100,
+    "y": 150,
+    "text": "1"
+  }, {
+    "x": 200,
+    "y": 150,
+    "text": "2"
+  }, {
+    "x": 300,
+    "y": 150,
+    "text": "3"
+  }, {
+    "x": 400,
+    "y": 150,
+    "text": "4"
+  }, {
+    "x": 350,
+    "y": 250,
+    "text": "5"
+  }, {
+    "x": 250,
+    "y": 250,
+    "text": "6"
+  }]
+});
+
+/***/ }),
+
 /***/ "./resources/js/components/TMT/Trails/B13ALV1.js":
 /*!*******************************************************!*\
   !*** ./resources/js/components/TMT/Trails/B13ALV1.js ***!
@@ -103626,6 +103714,48 @@ __webpack_require__.r(__webpack_exports__);
     "x": 341,
     "y": 340,
     "text": "13"
+  }]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/TMT/Trails/B_PREPARE.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/TMT/Trails/B_PREPARE.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  "width": 535,
+  "height": 465,
+  "diameter": 50,
+  "tokens": [{
+    "x": 100,
+    "y": 150,
+    "text": "1"
+  }, {
+    "x": 200,
+    "y": 150,
+    "text": "A"
+  }, {
+    "x": 300,
+    "y": 150,
+    "text": "2"
+  }, {
+    "x": 400,
+    "y": 150,
+    "text": "B"
+  }, {
+    "x": 350,
+    "y": 250,
+    "text": "3"
+  }, {
+    "x": 250,
+    "y": 250,
+    "text": "C"
   }]
 });
 

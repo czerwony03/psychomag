@@ -29,7 +29,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
                 @forelse($testsResults as $test)
+                    @if($loop->odd)
+                        <div class="row">
+                    @endif
                     <div class="col">
                         <div class="card w-100 mb-3">
                             <div class="card-header">{{ $test->name }}</div>
@@ -57,15 +61,16 @@
                             </div>
                         </div>
                     </div>
-                    @if($loop->iteration % 2)
-                        <div class="w-100"></div>
+                    @if($loop->even || $loop->last)
+                        </div>
                     @endif
                 @empty
+                <div class="row">
                     <div class="alert alert-danger">
                         Brak wyników
                     </div>
+                </div>
                 @endforelse
-            </div>
         @endif
     </div>
 @endsection

@@ -3,6 +3,8 @@ import Trails from '@orcatech/react-neuropsych-trails';
 import Marker from './Marker';
 import Theme from './Theme';
 
+import Trails_A_PREPARE from './Trails/A_PREPARE';
+import Trails_B_PREPARE from './Trails/B_PREPARE';
 import TrailsA25V1 from './Trails/A25V1';
 import TrailsA25V2 from './Trails/A25V2';
 import TrailsA25V3 from './Trails/A25V3';
@@ -15,6 +17,10 @@ class CustomTrails extends Trails {
 
     trail = () => {
         switch(this.props.part) {
+            case "A_PREPARE":
+                return Trails_A_PREPARE;
+            case "B_PREPARE":
+                return Trails_B_PREPARE;
             case "A25V1":
                 return TrailsA25V1;
             case "A25V2":

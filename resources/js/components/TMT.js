@@ -3,6 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import CustomTrails from './TMT/CustomTrails';
+import InstructionA from '../../img/TMT_A.png';
+import InstructionB from '../../img/TMT_B.png';
 
 const customStyles = {
     content : {
@@ -22,6 +24,7 @@ if(tmttest) {
 class TMT extends React.Component {
     static propTypes = {
         part: PropTypes.string.isRequired,
+        prepare: PropTypes.string.isRequired,
         ver: PropTypes.string.isRequired
     };
 
@@ -68,7 +71,7 @@ class TMT extends React.Component {
             }
         });
         this.post(window.location.origin + '/test/save',{
-            'test_code': 'tmt_' + this.props.ver.toLowerCase(),
+            'test_code': 'tmt_' + this.props.ver.toLowerCase() + (this.props.prepare ? '_prepare' : ''),
             'test_result': JSON.stringify({
                 'errors': err,
                 'ok': ok,
@@ -194,27 +197,33 @@ class TMT extends React.Component {
 
 class TMTBox extends React.Component {
     static propTypes = {
+        prepare: PropTypes.string.isRequired,
         part: PropTypes.string.isRequired,
         ver: PropTypes.string.isRequired
     };
     renderTest() {
-        ReactDOM.render(<TMT  ver={this.props.ver} part={this.props.part}/>, document.getElementById('tmttest'));
+        ReactDOM.render(<TMT prepare={this.props.prepare} ver={this.props.ver} part={this.props.part}/>, document.getElementById('tmttest'));
     }
     render() {
         return <div>
             {
-                this.props.ver === 'A' &&
-                <span>Na ekranie zobaczysz punkty oznaczone cyframi od 1 do 25.<br/>
-                Twoim zadaniem będzie jak najszybsze połączenie w kolejności numerycznej tych punktów.<br/>
-                <img src='https://psychomag.redtm.pl/img/TMT_A.png'/><br/>
+                !this.props.prepare &&
+                <span>To była tylko rozgrzewka. Teraz pora na prawdziwy test!<br/>
                 </span>
             }
             {
-                this.props.ver === 'B' &&
+                this.props.ver === 'A' && this.props.prepare &&
+                <span>Na ekranie zobaczysz punkty oznaczone cyframi od 1 do 25.<br/>
+                Twoim zadaniem będzie jak najszybsze połączenie w kolejności numerycznej tych punktów.<br/>
+                <img src={InstructionA}/><br/>
+                </span>
+            }
+            {
+                this.props.ver === 'B' && this.props.prepare &&
                 <span>Na ekranie zobaczysz punkty oznaczone cyframi od 1 do 25 i litery od A do L.<br/>
                 Twoim zadaniem będzie jak najszybsze połączenie linią ciągłą naprzemiennie cyfry z kolejnymi literami alfabetu według wzoru:<br/>
                 1-A-2-B-3-C-4-D itd.<br/>
-                <img src='https://psychomag.redtm.pl/img/TMT_B.png'/><br/>
+                <img src={InstructionB}/><br/>
                 </span>
             }<br/>
             <button className='btn btn-success' onClick={this.renderTest.bind(this)}>START</button>
@@ -226,7 +235,15 @@ export default (TMTBox);
 
 if(tmttest) {
     let trails = [];
-    if(tmttest.dataset.ver === 'A') {
+    if(tmttest.dataset.ver === 'A' && tmttest.dataset.prepare) {
+        trails = [
+            "A_PREPARE",
+        ];
+    } else if(tmttest.dataset.ver === 'B' && tmttest.dataset.prepare) {
+        trails = [
+            "B_PREPARE",
+        ];
+    } else if(tmttest.dataset.ver === 'A') {
         trails = [
             "A25V1",
             "A25V2",
@@ -239,5 +256,5 @@ if(tmttest) {
             "B13ALV3",
         ];
     }
-    ReactDOM.render(<TMTBox ver={tmttest.dataset.ver} part={trails[Math.floor(Math.random() * trails.length)]}/>, document.getElementById('tmttest'));
+    ReactDOM.render(<TMTBox prepare={tmttest.dataset.prepare} ver={tmttest.dataset.ver} part={trails[Math.floor(Math.random() * trails.length)]}/>, document.getElementById('tmttest'));
 }
