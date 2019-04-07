@@ -18,9 +18,9 @@
                             Ewelina
                         </p>
 
-                        <a href="{{route('poll_view')}}"><button class="btn btn-success"><h1>START</h1></button></a>
+                        <a href="{{route('poll_view')}}" role="button" class="btn btn-outline-success">START</a>
                         @if(Session::has('tester_uuid'))
-                            <a href="{{route('test.next')}}"><button class="btn btn-info"><h1>KONTYNUUJ</h1></button></a>
+                            <a href="{{route('test.next')}}" role="button" class="btn btn-outline-info">KONTYNUUJ</a>
                         @endif
                     </div>
                 </div>
