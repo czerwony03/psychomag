@@ -38,7 +38,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a style="color:red" class="nav-link" href="https://redtm.pl">{{ __('RedTM.pl') }}</a>
+                                <a style="color:red" class="nav-link" target="_blank" href="https://redtm.pl">Created by {{ __('RedTM.pl') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Logowanie') }}</a>

@@ -13763,12 +13763,3 @@ im #tmttest > div > div > div {
   border: 1px solid white;
 }
 
-.footer {
-  #position: absolute;
-  #bottom: 0;
-  width: 100%;
-  height: 40px;
-  line-height: 40px;
-  background-color: #dedede;
-}
-
