@@ -102738,32 +102738,26 @@ function (_Trails) {
 
     _defineProperty(_assertThisInitialized(_this), "trail", function () {
       switch (_this.props.part) {
-        case "A_PREPARE":
-          return _Trails_A_PREPARE__WEBPACK_IMPORTED_MODULE_4__["default"];
-
+        /*case "A_PREPARE":
+            return Trails_A_PREPARE;
         case "B_PREPARE":
-          return _Trails_B_PREPARE__WEBPACK_IMPORTED_MODULE_5__["default"];
-
+            return Trails_B_PREPARE;
         case "A25V1":
-          return _Trails_A25V1__WEBPACK_IMPORTED_MODULE_6__["default"];
-
+            return TrailsA25V1;
         case "A25V2":
-          return _Trails_A25V2__WEBPACK_IMPORTED_MODULE_7__["default"];
-
+            return TrailsA25V2;
         case "A25V3":
-          return _Trails_A25V3__WEBPACK_IMPORTED_MODULE_8__["default"];
-
+            return TrailsA25V3;
         case "B13ALV1":
-          return _Trails_B13ALV1__WEBPACK_IMPORTED_MODULE_9__["default"];
-
+            return TrailsB13ALV1;
         case "B13ALV2":
-          return _Trails_B13ALV2__WEBPACK_IMPORTED_MODULE_10__["default"];
-
+            return TrailsB13ALV2;
         case "B13ALV3":
-          return _Trails_B13ALV3__WEBPACK_IMPORTED_MODULE_11__["default"];
-
+            return TrailsB13ALV3;
         default:
-          return _Trails_A25V1__WEBPACK_IMPORTED_MODULE_6__["default"];
+            return TrailsA25V1;*/
+        default:
+          return _Trails_B13ALV3__WEBPACK_IMPORTED_MODULE_11__["default"];
       }
     });
 
@@ -103028,15 +103022,15 @@ __webpack_require__.r(__webpack_exports__);
     "text": "11"
   }, {
     "x": 38,
-    "y": 418,
+    "y": 430,
     "text": "12"
   }, {
     "x": 38,
     "y": 370,
     "text": "13"
   }, {
-    "x": 78,
-    "y": 438,
+    "x": 85,
+    "y": 448,
     "text": "14"
   }, {
     "x": 38,
@@ -103072,7 +103066,7 @@ __webpack_require__.r(__webpack_exports__);
     "text": "22"
   }, {
     "x": 121,
-    "y": 100,
+    "y": 90,
     "text": "23"
   }, {
     "x": 181,
@@ -103114,7 +103108,7 @@ __webpack_require__.r(__webpack_exports__);
     "text": "3"
   }, {
     "x": 354,
-    "y": 390,
+    "y": 400,
     "text": "4"
   }, {
     "x": 119,
@@ -103134,7 +103128,7 @@ __webpack_require__.r(__webpack_exports__);
     "text": "8"
   }, {
     "x": 101,
-    "y": 333,
+    "y": 343,
     "text": "9"
   }, {
     "x": 125,
@@ -103154,7 +103148,7 @@ __webpack_require__.r(__webpack_exports__);
     "text": "13"
   }, {
     "x": 138,
-    "y": 158,
+    "y": 168,
     "text": "14"
   }, {
     "x": 38,
@@ -103193,12 +103187,12 @@ __webpack_require__.r(__webpack_exports__);
     "y": 280,
     "text": "23"
   }, {
-    "x": 400,
+    "x": 410,
     "y": 380,
     "text": "24"
   }, {
     "x": 430,
-    "y": 220,
+    "y": 230,
     "text": "25"
   }]
 });
@@ -103228,7 +103222,7 @@ __webpack_require__.r(__webpack_exports__);
     "text": "2"
   }, {
     "x": 216,
-    "y": 20,
+    "y": 30,
     "text": "3"
   }, {
     "x": 354,
@@ -103284,7 +103278,7 @@ __webpack_require__.r(__webpack_exports__);
     "text": "16"
   }, {
     "x": 151,
-    "y": 280,
+    "y": 285,
     "text": "17"
   }, {
     "x": 101,
@@ -103424,15 +103418,15 @@ __webpack_require__.r(__webpack_exports__);
     "text": "6"
   }, {
     "x": 38,
-    "y": 418,
+    "y": 428,
     "text": "F"
   }, {
     "x": 38,
     "y": 370,
     "text": "7"
   }, {
-    "x": 78,
-    "y": 438,
+    "x": 88,
+    "y": 448,
     "text": "G"
   }, {
     "x": 38,
@@ -103468,7 +103462,7 @@ __webpack_require__.r(__webpack_exports__);
     "text": "K"
   }, {
     "x": 121,
-    "y": 100,
+    "y": 80,
     "text": "12"
   }, {
     "x": 181,
@@ -103530,7 +103524,7 @@ __webpack_require__.r(__webpack_exports__);
     "text": "D"
   }, {
     "x": 101,
-    "y": 333,
+    "y": 343,
     "text": "5"
   }, {
     "x": 125,
@@ -103550,7 +103544,7 @@ __webpack_require__.r(__webpack_exports__);
     "text": "7"
   }, {
     "x": 138,
-    "y": 158,
+    "y": 168,
     "text": "G"
   }, {
     "x": 38,
@@ -103589,11 +103583,11 @@ __webpack_require__.r(__webpack_exports__);
     "y": 280,
     "text": "12"
   }, {
-    "x": 400,
+    "x": 410,
     "y": 380,
     "text": "L"
   }, {
-    "x": 430,
+    "x": 440,
     "y": 220,
     "text": "13"
   }]
@@ -103623,8 +103617,8 @@ __webpack_require__.r(__webpack_exports__);
     "y": 30,
     "text": "A"
   }, {
-    "x": 216,
-    "y": 20,
+    "x": 226,
+    "y": 30,
     "text": "2"
   }, {
     "x": 354,

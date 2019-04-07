@@ -153,20 +153,15 @@
                 msg.text('Test przerwany. Naciśnij start, aby spróbować ponownie!').css('color','');
             } else {
                 clearMsg();
-                var list = msg.css('color','').append('Wyniki:<br/><ul></ul>').find('ul');
-                results.forEach(function (result) {
-                    list.append('<li>' + trueFalse(result[0]) + ' ' + result[1] + '</li>');
-                });
-                msg.append('<br/>Błędnych odpowiedzi: ' + errors + '/' + attempts);
-
+                msg.css('color','').append('Trwa generowanie wyniku...');
                 let timeSum = 0;
                 results.forEach(function(res) {
                     timeSum+=res[1];
                 });
 
+                $('#stroop-start').prop('disabled', true);
+                $('#stroop-stop').prop('disabled', true);
                 const avgtime = Math.round(timeSum/results.length);
-                msg.append('<br/>Średni czas reakcji: ' + avgtime + 'ms');
-
                 setTimeout(function () {
                     post('{{ route('test.save') }}', {
                         'test_code': '{{ $test_code }}',
