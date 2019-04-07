@@ -16,7 +16,8 @@
                                     Na ekranie będą pojawiać się strzałki w prawo lub w lewo.<br/><br/>
                                     Gdy zobaczysz strzałkę w prawo naciśnij N,<br/>
                                     a gdy zobaczysz strzałkę w lewo nie reaguj (nie naciskaj żadnego klawisza).<br/><br/>
-                                    Tak jak poprzednio na odpowiedź masz 500 ms (pół sekundy).
+                                    Tak jak poprzednio na odpowiedź masz 500 ms (pół sekundy).<br/>
+                                    Test trwa 75 sekund (pierwsze 15 sekund to rozgrzewka, która nie jest liczona do wyniku!)
                                 </span>
                             </h1>
                         </div>

@@ -15,7 +15,8 @@
                                 <span style="font-size:0.6em;" class="d-flex text-center">
                                     Na ekranie będą pojawiać się strzałki w prawo lub w lewo.<br/><br/>
                                     Gdy zobaczysz strzałkę w lewo naciśnij B,<br/>a gdy zobaczysz strzałkę w prawo naciśnij klawisz N.<br/><br/>
-                                    Chociaż jest to proste zadanie, musisz jednak przyzwyczaić się do szybkiego reagowania.<br/>Musisz odpowiedzieć w ciągu 500 ms (pół sekundy).
+                                    Chociaż jest to proste zadanie, musisz jednak przyzwyczaić się do szybkiego reagowania.<br/>Musisz odpowiedzieć w ciągu 500 ms (pół sekundy).<br/>
+                                    Test trwa 75 sekund (pierwsze 15 sekund to rozgrzewka, która nie jest liczona do wyniku!)
                                 </span>
                             </h1>
                         </div>
