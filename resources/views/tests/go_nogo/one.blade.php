@@ -137,15 +137,17 @@
                 const avgtime = Math.round(timeSum/results.length);
                 msg.append('<br/>Średni czas reakcji: ' + avgtime + 'ms');
 
-                post('{{ route('test.save') }}', {
-                    'test_code': '{{ $test_code }}',
-                    'test_result': JSON.stringify({
-                        'attempts': attempts,
-                        'errors': errors,
-                        'avg_time': avgtime,
-                        'data': results
-                    })
-                });
+                setTimeout(function () {
+                    post('{{ route('test.save') }}', {
+                        'test_code': '{{ $test_code }}',
+                        'test_result': JSON.stringify({
+                            'attempts': attempts,
+                            'errors': errors,
+                            'avg_time': avgtime,
+                            'data': results
+                        })
+                    });
+                },3000);
             }
         }
         function testTimeoutFinish() {
