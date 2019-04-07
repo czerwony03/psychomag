@@ -43,7 +43,7 @@ class PollPersonalDataController extends Controller
             ]
         ],
         [
-            "q" => "Zażywam marichuanę",
+            "q" => "Zażywam marihuanę",
             "a" => [
                 "Tak",
                 "Nie",
@@ -84,13 +84,14 @@ class PollPersonalDataController extends Controller
             "a" => [
                 "Praca (stała/dorywcza)",
                 "Nauka",
+                "Praca i nauka",
                 "Brak pracy i nauki",
-                "Renta ",
+                "Renta",
             ]
         ],
         [
             "type" => "2",
-            "q" => "Zaznacz substancje (lub ich zamienniki), które zażywałaś/ zażywałeś w ciągu ostatniego miesiąca",
+            "q" => "Zaznacz substancje (lub ich zamienniki), które zażywałaś / zażywałeś w ciągu ostatniego miesiąca",
             "a" => [
                 "Alkohol",
                 "Nikotyna",

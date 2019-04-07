@@ -2,6 +2,13 @@
 
 @section('content')
     <div class="container">
+        <div class="row w-100">
+            <div class="card mb-3 w-100">
+                <div class="card-body">
+                    W każdym pytaniu wybierz jedną odpowiedź, która najlepiej określa Twoje uczucia <strong>podczas ostatnich 7 dni</strong> (a nie tylko w dniu dzisiejszym).<br/>W przypadku wątpliwości, zadaj sobie pytanie: <i>Która z odpowiedzi jest najbliższa temu co czuję i myślę?</i>
+                </div>
+            </div>
+        </div>
         <form method="POST" action="{{ route('poll_send') }}">
             @if ($errors->any())
                 <div class="row w-100">
@@ -42,7 +49,7 @@
                 @endforeach
                 <div class="row w-100">
                     <div class="card mb-3 w-100">
-                        <div class="card-body" id="{{$question_text}}">
+                        <div class="card-body">
                             <button type="submit" class="btn btn-primary mb-2">Kontynuuj</button>
                         </div>
                     </div>

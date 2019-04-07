@@ -2,6 +2,13 @@
 
 @section('content')
     <div class="container">
+        <div class="row w-100">
+            <div class="card mb-3 w-100">
+                <div class="card-body">
+                    Poniższe pytania dotyczą używania marihuany, haszyszu, skuna i innych przetworów konopi indyjskich. Odpowiadając skoncentruj się na tym, co działo się w czasie <strong>ostatnich 12 miesięcy</strong>.
+                </div>
+            </div>
+        </div>
         <form method="POST" action="{{ route('poll_pum_send') }}">
             @if ($errors->any())
                 <div class="row w-100">
@@ -22,9 +29,8 @@
                     @php ($question_text = 'question_'.$question_id)
                     <div class="row w-100">
                         <div class="card mb-3 w-100">
-                            <div class="card-header">Pytanie {{ $question_id+1 }}</div>
+                            <div class="card-header">{{ $question }}</div>
                             <div class="card-body" id="{{$question_text}}">
-                                <h5>{{ $question }}</h5>
                                 @foreach($answers as $answer_id => $answer)
                                     @php ($question_answer_text = 'question_'.$question_id.'_radio_'.$answer_id)
                                     <div class="form-check">
@@ -43,7 +49,7 @@
                 @endforeach
                 <div class="row w-100">
                     <div class="card mb-3 w-100">
-                        <div class="card-body" id="{{$question_text}}">
+                        <div class="card-body">
                             <button type="submit" class="btn btn-primary mb-2">Kontynuuj</button>
                         </div>
                     </div>

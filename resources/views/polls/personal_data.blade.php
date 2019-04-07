@@ -22,11 +22,10 @@
                     @php ($question_text = 'question_'.$question_id)
                     <div class="row w-100">
                         <div class="card mb-3 w-100">
-                            <div class="card-header">Pytanie {{ $question_id+1 }}</div>
+                            <div class="card-header">{{ $question["q"] }}</div>
                             <div class="card-body" id="{{$question_text}}">
-                                <h5>{{ $question["q"] }}</h5>
                                 @if(!empty($question["type"]) && $question["type"]==1)
-                                    <div class="d-inline-flex">
+                                    <div style="column-count:4;">
                                         @elseif(!empty($question["type"]) && $question["type"]==2)
                                             <div style="column-count:2;">
                                                 @endif
@@ -40,9 +39,6 @@
                                                         @endif
                                                         <label class="form-check-label" for="{{$question_answer_text}}">
                                                             {{ $answer }}
-                                                            @if(!empty($question["type"]) && $question["type"]==1)
-                                                                &nbsp;&nbsp;
-                                                            @endif
                                                         </label>
                                                     </div>
                                                 @endforeach
