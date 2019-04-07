@@ -17,7 +17,7 @@ class CustomTrails extends Trails {
 
     trail = () => {
         switch(this.props.part) {
-            /*case "A_PREPARE":
+            case "A_PREPARE":
                 return Trails_A_PREPARE;
             case "B_PREPARE":
                 return Trails_B_PREPARE;
@@ -34,9 +34,7 @@ class CustomTrails extends Trails {
             case "B13ALV3":
                 return TrailsB13ALV3;
             default:
-                return TrailsA25V1;*/
-            default:
-                return TrailsB13ALV3;
+                return TrailsA25V1;
         }
     };
 

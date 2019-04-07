@@ -220,7 +220,7 @@ class TMTBox extends React.Component {
             }
             {
                 this.props.ver === 'B' && this.props.prepare &&
-                <span>Na ekranie zobaczysz punkty oznaczone cyframi od 1 do 25 i litery od A do L.<br/>
+                <span>Na ekranie zobaczysz punkty oznaczone cyframi od 1 do 13 i litery od A do L.<br/>
                 Twoim zadaniem będzie jak najszybsze połączenie linią ciągłą naprzemiennie cyfry z kolejnymi literami alfabetu według wzoru:<br/>
                 1-A-2-B-3-C-4-D itd.<br/>
                 <img src={InstructionB}/><br/>

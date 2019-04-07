@@ -102624,7 +102624,7 @@ function (_React$Component2) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, !this.props.prepare && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "To by\u0142a tylko rozgrzewka. Teraz pora na prawdziwy test!", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null)), this.props.ver === 'A' && this.props.prepare && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Na ekranie zobaczysz punkty oznaczone cyframi od 1 do 25.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "Twoim zadaniem b\u0119dzie jak najszybsze po\u0142\u0105czenie w kolejno\u015Bci numerycznej tych punkt\xF3w.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
         src: _img_TMT_A_png__WEBPACK_IMPORTED_MODULE_5___default.a
-      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null)), this.props.ver === 'B' && this.props.prepare && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Na ekranie zobaczysz punkty oznaczone cyframi od 1 do 25 i litery od A do L.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "Twoim zadaniem b\u0119dzie jak najszybsze po\u0142\u0105czenie lini\u0105 ci\u0105g\u0142\u0105 naprzemiennie cyfry z kolejnymi literami alfabetu wed\u0142ug wzoru:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "1-A-2-B-3-C-4-D itd.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null)), this.props.ver === 'B' && this.props.prepare && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Na ekranie zobaczysz punkty oznaczone cyframi od 1 do 13 i litery od A do L.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "Twoim zadaniem b\u0119dzie jak najszybsze po\u0142\u0105czenie lini\u0105 ci\u0105g\u0142\u0105 naprzemiennie cyfry z kolejnymi literami alfabetu wed\u0142ug wzoru:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), "1-A-2-B-3-C-4-D itd.", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
         src: _img_TMT_B_png__WEBPACK_IMPORTED_MODULE_6___default.a
       }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         className: "btn btn-success",
@@ -102738,26 +102738,32 @@ function (_Trails) {
 
     _defineProperty(_assertThisInitialized(_this), "trail", function () {
       switch (_this.props.part) {
-        /*case "A_PREPARE":
-            return Trails_A_PREPARE;
+        case "A_PREPARE":
+          return _Trails_A_PREPARE__WEBPACK_IMPORTED_MODULE_4__["default"];
+
         case "B_PREPARE":
-            return Trails_B_PREPARE;
+          return _Trails_B_PREPARE__WEBPACK_IMPORTED_MODULE_5__["default"];
+
         case "A25V1":
-            return TrailsA25V1;
+          return _Trails_A25V1__WEBPACK_IMPORTED_MODULE_6__["default"];
+
         case "A25V2":
-            return TrailsA25V2;
+          return _Trails_A25V2__WEBPACK_IMPORTED_MODULE_7__["default"];
+
         case "A25V3":
-            return TrailsA25V3;
+          return _Trails_A25V3__WEBPACK_IMPORTED_MODULE_8__["default"];
+
         case "B13ALV1":
-            return TrailsB13ALV1;
+          return _Trails_B13ALV1__WEBPACK_IMPORTED_MODULE_9__["default"];
+
         case "B13ALV2":
-            return TrailsB13ALV2;
+          return _Trails_B13ALV2__WEBPACK_IMPORTED_MODULE_10__["default"];
+
         case "B13ALV3":
-            return TrailsB13ALV3;
-        default:
-            return TrailsA25V1;*/
-        default:
           return _Trails_B13ALV3__WEBPACK_IMPORTED_MODULE_11__["default"];
+
+        default:
+          return _Trails_A25V1__WEBPACK_IMPORTED_MODULE_6__["default"];
       }
     });
 
