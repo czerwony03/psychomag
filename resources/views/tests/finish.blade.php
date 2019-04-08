@@ -45,15 +45,31 @@
                                     @endphp
                                     @foreach($jsonDecoded as $key=>$val)
                                         <li>
-                                            {{$key}}:
                                             @if(is_array($val))
+                                                @if($test->code === \App\Http\Controllers\PollPersonalDataController::CODE)
+                                                    {{\App\Http\Controllers\PollPersonalDataController::QUESTIONS[explode('_',$key)[1]-1]["q"]}}:
+                                                @else
+                                                    {{$key}}:
+                                                @endif
                                                 <ul>
                                                     @foreach($val as $val2)
-                                                        <li>{{$val2}}</li>
+                                                        <li>
+                                                            @if($test->code === \App\Http\Controllers\PollPersonalDataController::CODE)
+                                                                {{$val2}}{{\App\Http\Controllers\PollPersonalDataController::QUESTIONS[explode('_',$key)[1]-1]["a"][$val2]}}
+                                                            @else
+                                                                {{$val2}}
+                                                            @endif
+                                                        </li>
                                                     @endforeach
                                                 </ul>
                                             @else
-                                                {{$val}}
+                                                @if($test->code === \App\Http\Controllers\PollPersonalDataController::CODE)
+                                                    {{\App\Http\Controllers\PollPersonalDataController::QUESTIONS[explode('_',$key)[1]-1]["q"]}}:
+                                                    {{\App\Http\Controllers\PollPersonalDataController::QUESTIONS[explode('_',$key)[1]-1]["a"][$val]}}
+                                                @else
+                                                    {{$key}}:
+                                                    {{$val}}
+                                                @endif
                                             @endif
                                         </li>
                                     @endforeach
