@@ -114,7 +114,8 @@ class PollPersonalDataController extends Controller
                 "Anaboliki",
                 "Ecstasy",
                 "Grzyby halucynogenne",
-                "inne",
+                "Inne",
+                "Nie zażywam",
             ]
         ]
     ];
