@@ -26,7 +26,7 @@ class PollPersonalDataRequest extends FormRequest
     {
         $rules = [];
         foreach (PollPersonalDataController::QUESTIONS as $id => $question) {
-            if($question["type"] != 2) {
+            if(empty($question["type"]) || $question["type"] != 2) {
                 $rules['question_'.$id] = 'required';
             }
         }
