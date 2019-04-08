@@ -16,7 +16,7 @@
                 </thead>
                 <tbody>
                 @foreach($testers as $tester)
-                    <tr{{ $tester->tests->count()>=$tests->count() ? ' class="table-success"' : '' }}>
+                    <tr{!! $tester->tests->count()>=$tests->count() ? ' class="table-success"' : '' !!}>
                         <th scope="row">{{$tester->id}}</th>
                         <td>{{$tester->uuid}}</td>
                         <td>{{$tester->tests->count()}}/{{$tests->count()}}</td>
