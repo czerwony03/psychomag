@@ -92,7 +92,7 @@ class PollPersonalDataController extends Controller
         [
             "type" => "2",
             "q" => "Zaznacz substancje (lub ich zamienniki), które zażywałaś / zażywałeś w ciągu ostatniego miesiąca",
-            "a" => [
+            "a" => [a
                 "Alkohol",
                 "Nikotyna",
                 "Nadużywanie leków",
@@ -107,7 +107,7 @@ class PollPersonalDataController extends Controller
                 "Barbiturany",
                 "Ketamina",
                 "Benzodiazepiny",
-                "Buprenofina",
+                "Buprenorfina",
                 "Substancje wziewne",
                 "LSD",
                 "Metylofenidat",

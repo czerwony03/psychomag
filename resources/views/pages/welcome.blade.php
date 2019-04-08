@@ -15,7 +15,8 @@
                             Jestem pewna, że z Twoją pomocą nazbieram odpowiednią liczbę osób badanych!<br/>
                             <br/><strong>Badanie jest CAŁKOWICIE ANONIMOWE i dobrowolne, możesz z niego zrezygnować, w każdym momencie jego trwania.</strong><br/>
                             <br/>Z góry dziękuję,<br/>
-                            Ewelina
+                            Ewelina<br/><br/>
+                            PS. W trakcie testu nie wychodź z tej strony, ponieważ może pojawić sie problem z odczytem klawiatury :).<br/>W razie pojawienia się problemów spróbuj nacisnąć myszką pole testowe!
                         </p>
 
                         <a href="{{route('poll_view')}}" role="button" class="btn btn-outline-success">START</a>
