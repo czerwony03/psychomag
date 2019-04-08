@@ -55,7 +55,7 @@
                                                     @foreach($val as $val2)
                                                         <li>
                                                             @if($test->code === \App\Http\Controllers\PollPersonalDataController::CODE)
-                                                                {{$val2}}{{\App\Http\Controllers\PollPersonalDataController::QUESTIONS[explode('_',$key)[1]-1]["a"][$val2]}}
+                                                                {{\App\Http\Controllers\PollPersonalDataController::QUESTIONS[explode('_',$key)[1]-1]["a"][$val2]}}
                                                             @else
                                                                 {{$val2}}
                                                             @endif
