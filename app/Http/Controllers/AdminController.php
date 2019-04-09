@@ -20,6 +20,16 @@ class AdminController extends Controller
         return response()->view('pages.auth.objects', compact('testers', 'tests'));
     }
 
+    public function objects_ganja()
+    {
+        $testers=Tester::whereHas('tests', function ($query) {
+            $query->where('tests.code', '=', PollPersonalDataController::CODE);
+            $query->where('test_tester.result', 'LIKE', '%"question_3":"0"%');
+        })->get();
+        $tests=Test::all();
+        return response()->view('pages.auth.objects', compact('testers', 'tests'));
+    }
+
     public function objectResult($id)
     {
         $tester = Tester::find($id);

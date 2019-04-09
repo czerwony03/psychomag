@@ -8,7 +8,8 @@
                     <div class="card-header">Panel</div>
 
                     <div class="card-body">
-                        Obiekty testowe: <a href="{{ route('auth.tests.objects') }}">Link</a>
+                        Obiekty testowe: <a href="{{ route('auth.tests.objects') }}">Link</a><br/>
+                        Obiekty testowe - ganja: <a href="{{ route('auth.tests.objects_ganja') }}">Link</a>
                     </div>
                 </div>
             </div>

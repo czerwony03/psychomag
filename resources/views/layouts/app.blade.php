@@ -58,6 +58,9 @@
                                     <a class="dropdown-item" href="{{ route('auth.tests.objects') }}">
                                         {{ __('Wyniki obiektów testowych') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('auth.tests.objects_ganja') }}">
+                                        Wyniki ganja <i class="fa fa-cannabis"></i>
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
