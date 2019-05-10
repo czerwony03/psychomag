@@ -28,7 +28,7 @@ class TestersExport implements FromCollection, WithHeadings, WithMapping
 
     public function headings(): array
     {
-        return [
+        $headings = [
             '#',
             'UUID',
             'Utworzony',
@@ -72,11 +72,16 @@ class TestersExport implements FromCollection, WithHeadings, WithMapping
             "WCST_Errors",
             "WCST_RepeatedErrors",
             "WCST_CompletedDecks",
-            PollPumController::CODE,
-            PollPersonalDataController::CODE,
-            Test::TEST_TMT_A_PREPARE,
-            Test::TEST_TMT_B_PREPARE,
+            PollPumController::CODE
         ];
+        foreach (PollPumController::$questions as $question) {
+            $headings[] = $question;
+        }
+        $headings[] = PollPersonalDataController::CODE;
+        $headings[] = Test::TEST_TMT_A_PREPARE;
+        $headings[] = Test::TEST_TMT_B_PREPARE;
+
+        return $headings;
     }
 
     public function map($tester): array
@@ -122,7 +127,9 @@ class TestersExport implements FromCollection, WithHeadings, WithMapping
                     $row[] = ($result->completed_decks ? $result->completed_decks : "0");
                     break;
                 case PollPumController::CODE:
-                    //
+                    foreach ($result as $answerId) {
+                        $row[] = PollPumController::$answers[($answerId-1)];
+                    }
                     break;
                 case PollPersonalDataController::CODE:
                     //
