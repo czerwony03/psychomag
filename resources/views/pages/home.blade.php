@@ -9,7 +9,8 @@
 
                     <div class="card-body">
                         Obiekty testowe: <a href="{{ route('auth.tests.objects') }}">Link</a><br/>
-                        Obiekty testowe - ganja: <a href="{{ route('auth.tests.objects_ganja') }}">Link</a>
+                        Obiekty testowe - ganja: <a href="{{ route('auth.tests.objects_ganja') }}">Link</a><br/>
+                        Pobierz wyniki: <a href="{{ route('auth.tests.objects.results.download') }}">Download</a>
                     </div>
                 </div>
             </div>

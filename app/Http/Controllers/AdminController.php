@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\TestersExport;
 use App\Models\Test;
 use App\Models\Tester;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminController extends Controller
 {
@@ -39,5 +41,27 @@ class AdminController extends Controller
         $testsResults = $tester->tests->sortBy('pivot.test_id');
         $tests=Test::all();
         return response()->view('tests.finish', compact('tester', 'testsResults', 'tests'));
+    }
+
+    public function resultsDownload()
+    {
+        /*ini_set('xdebug.var_display_max_depth', '10');
+        ini_set('xdebug.var_display_max_children', '256');
+        ini_set('xdebug.var_display_max_data', '1024');
+
+        $tests=Test::all();
+        $testers=Tester::with(['tests' => function ($query) {
+            $query->orderBy('test_id');
+        }])->get();
+
+        foreach ($testers as $tester) {
+            if ($tester->tests->count()>=$tests->count()) {
+
+                var_dump($tester);
+                die();
+            }
+        }*/
+
+        return Excel::download(new TestersExport(), 'results.xlsx', null, []);
     }
 }

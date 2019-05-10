@@ -39,5 +39,6 @@ Route::prefix('auth')->name('auth.')->middleware('auth')->group(function () {
         Route::get('objects', 'AdminController@objects')->name('objects');
         Route::get('objects/ganja', 'AdminController@objects_ganja')->name('objects_ganja');
         Route::get('object/result/{id}', 'AdminController@objectResult')->name('object.result');
+        Route::get('objects/results/download', 'AdminController@resultsDownload')->name('objects.results.download');
     });
 });
