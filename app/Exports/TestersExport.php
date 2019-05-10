@@ -2,6 +2,10 @@
 
 namespace App\Exports;
 
+use App\Http\Controllers\PollDepressionController;
+use App\Http\Controllers\PollPersonalDataController;
+use App\Http\Controllers\PollPumController;
+use App\Models\Test;
 use App\Models\Tester;
 use Illuminate\Support\Facades\Date;
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -15,9 +19,11 @@ class TestersExport implements FromCollection, WithHeadings, WithMapping
     */
     public function collection()
     {
-        return Tester::with(['tests' => function ($query) {
-            $query->orderBy('test_id');
-        }])->get();
+        return Tester::with([
+            'tests' => function ($query) {
+                $query->orderBy('test_id');
+            }
+        ])->has('tests', '=', 14)->get();
     }
 
     public function headings(): array
@@ -27,21 +33,110 @@ class TestersExport implements FromCollection, WithHeadings, WithMapping
             'UUID',
             'Utworzony',
             'Aktualizacja',
-            /*'C4',
-            'C5',
-            'C6',
-            'C7',*/
+            PollDepressionController::CODE,
+            "Dep_Suma",
+            Test::TEST_STROOP_1,
+            "S1_Attempts",
+            "S1_Errors",
+            "S1_AvgTime",
+            Test::TEST_STROOP_2,
+            "S2_Attempts",
+            "S2_Errors",
+            "S2_AvgTime",
+            Test::TEST_STROOP_3,
+            "S3_Attempts",
+            "S3_Errors",
+            "S3_AvgTime",
+            Test::TEST_STROOP_4,
+            "S4_Attempts",
+            "S4_Errors",
+            "S4_AvgTime",
+            Test::TEST_TMT_A,
+            "TA_Errors",
+            "TA_OK",
+            "TA_Time",
+            Test::TEST_TMT_B,
+            "TB_Errors",
+            "TB_OK",
+            "TB_Time",
+            Test::TEST_GO_NOGO_1,
+            "GN1_Attempts",
+            "GN1_Errors",
+            "GN1_AvgTime",
+            Test::TEST_GO_NOGO_2,
+            "GN2_Attempts",
+            "GN2_Errors",
+            "GN2_AvgTime",
+            Test::TEST_WCST,
+            "WCST_Attempts",
+            "WCST_Errors",
+            "WCST_RepeatedErrors",
+            "WCST_CompletedDecks",
+            PollPumController::CODE,
+            PollPersonalDataController::CODE,
+            Test::TEST_TMT_A_PREPARE,
+            Test::TEST_TMT_B_PREPARE,
         ];
     }
 
     public function map($tester): array
     {
-        
-        return [
+        $row = [
             $tester->id,
             $tester->uuid,
             $tester->created_at,
             $tester->updated_at,
         ];
+        /** @var Test $test */
+        foreach ($tester->tests as $test) {
+            $result = json_decode($test->pivot->result, false);
+            $row[] = $test->code;
+            switch ($test->code) {
+                case PollDepressionController::CODE:
+                    $row[] = ($result->poll_sum ? $result->poll_sum : "0");
+                    break;
+                case Test::TEST_STROOP_1:
+                case Test::TEST_STROOP_2:
+                case Test::TEST_STROOP_3:
+                case Test::TEST_STROOP_4:
+                    $row[] = ($result->attempts ? $result->attempts : "0");
+                    $row[] = ($result->errors ? $result->errors : "0");
+                    $row[] = ($result->avg_time ? $result->avg_time : "0");
+                    break;
+                case Test::TEST_TMT_A:
+                case Test::TEST_TMT_B:
+                    $row[] = ($result->errors ? $result->errors : "0");
+                    $row[] = ($result->ok ? $result->ok : "0");
+                    $row[] = ($result->time ? $result->time : "0");
+                    break;
+                case Test::TEST_GO_NOGO_1:
+                case Test::TEST_GO_NOGO_2:
+                    $row[] = ($result->attempts ? $result->attempts : "0");
+                    $row[] = ($result->errors ? $result->errors : "0");
+                    $row[] = ($result->avg_time ? $result->avg_time : "0");
+                    break;
+                case Test::TEST_WCST:
+                    $row[] = ($result->attempts ? $result->attempts : "0");
+                    $row[] = ($result->errors ? $result->errors : "0");
+                    $row[] = ($result->repeated_errors ? $result->repeated_errors : "0");
+                    $row[] = ($result->completed_decks ? $result->completed_decks : "0");
+                    break;
+                case PollPumController::CODE:
+                    //
+                    break;
+                case PollPersonalDataController::CODE:
+                    //
+                    break;
+                case Test::TEST_TMT_A_PREPARE:
+                    //
+                    break;
+                case Test::TEST_TMT_B_PREPARE:
+                    //
+                    break;
+                default:
+                    $row[] = 'Wystąpił błąd!';
+            }
+        }
+        return $row;
     }
 }
