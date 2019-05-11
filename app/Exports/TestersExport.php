@@ -77,7 +77,18 @@ class TestersExport implements FromCollection, WithHeadings, WithMapping
         foreach (PollPumController::$questions as $question) {
             $headings[] = $question;
         }
+
         $headings[] = PollPersonalDataController::CODE;
+        foreach (PollPersonalDataController::QUESTIONS as $question) {
+            if (empty($question["type"]) || $question["type"] != 2) {
+                $headings[] = $question["q"];
+            } else {
+                foreach ($question["a"] as $answer) {
+                    $headings[] = $answer;
+                }
+            }
+        }
+
         $headings[] = Test::TEST_TMT_A_PREPARE;
         $headings[] = Test::TEST_TMT_B_PREPARE;
 
@@ -132,11 +143,10 @@ class TestersExport implements FromCollection, WithHeadings, WithMapping
                     }
                     break;
                 case PollPersonalDataController::CODE:
-                    //
+                    var_dump($result);
+                    die();
                     break;
                 case Test::TEST_TMT_A_PREPARE:
-                    //
-                    break;
                 case Test::TEST_TMT_B_PREPARE:
                     //
                     break;
