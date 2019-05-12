@@ -71,9 +71,9 @@ class TestersExport implements FromCollection, WithHeadings, WithMapping
             "WCST_Attempts",
             "WCST_Errors",
             "WCST_RepeatedErrors",
-            "WCST_CompletedDecks",
-            PollPumController::CODE
+            "WCST_CompletedDecks"
         ];
+        $headings[] = PollPumController::CODE;
         foreach (PollPumController::$questions as $question) {
             $headings[] = $question;
         }
@@ -89,9 +89,6 @@ class TestersExport implements FromCollection, WithHeadings, WithMapping
             }
         }
 
-        $headings[] = Test::TEST_TMT_A_PREPARE;
-        $headings[] = Test::TEST_TMT_B_PREPARE;
-
         return $headings;
     }
 
@@ -106,7 +103,9 @@ class TestersExport implements FromCollection, WithHeadings, WithMapping
         /** @var Test $test */
         foreach ($tester->tests as $test) {
             $result = json_decode($test->pivot->result, false);
-            $row[] = $test->code;
+            if (!in_array($test->code,[Test::TEST_TMT_A_PREPARE, Test::TEST_TMT_B_PREPARE])) {
+                $row[] = $test->code;
+            }
             switch ($test->code) {
                 case PollDepressionController::CODE:
                     $row[] = ($result->poll_sum ? $result->poll_sum : "0");
@@ -143,12 +142,18 @@ class TestersExport implements FromCollection, WithHeadings, WithMapping
                     }
                     break;
                 case PollPersonalDataController::CODE:
-                    var_dump($result);
-                    die();
+                    $key = 0;
+                    foreach ($result as $answer) {
+                        if (empty(PollPersonalDataController::QUESTIONS[$key]['type']) || PollPersonalDataController::QUESTIONS[$key]['type'] != 2) {
+                            $row[] = PollPersonalDataController::QUESTIONS[$key]['a'][$answer];
+                        } else {
+                            
+                        }
+                        $key ++;
+                    }
                     break;
                 case Test::TEST_TMT_A_PREPARE:
                 case Test::TEST_TMT_B_PREPARE:
-                    //
                     break;
                 default:
                     $row[] = 'Wystąpił błąd!';
