@@ -148,7 +148,9 @@ class TestersExport implements FromCollection, WithHeadings, WithMapping
                             $row[] = PollPersonalDataController::QUESTIONS[$key]['a'][$answer];
                         } else {
                             foreach (array_flip(PollPersonalDataController::QUESTIONS[$key]['a']) as $item) {
-                                if(in_array($item, $answer)) {
+								if (!is_array($answer)) {
+									$row[] = "ERROR";
+								} elseif (in_array($item, $answer)) {
                                     $row[] = "TAK";
                                 } else {
                                     $row[] = "NIE";

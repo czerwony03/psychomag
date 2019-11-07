@@ -64,8 +64,13 @@
                                                 </ul>
                                             @else
                                                 @if($test->code === \App\Http\Controllers\PollPersonalDataController::CODE)
-                                                    {{\App\Http\Controllers\PollPersonalDataController::QUESTIONS[explode('_',$key)[1]-1]["q"]}}:
-                                                    {{\App\Http\Controllers\PollPersonalDataController::QUESTIONS[explode('_',$key)[1]-1]["a"][$val]}}
+													@if(strlen($val))
+														{{\App\Http\Controllers\PollPersonalDataController::QUESTIONS[explode('_',$key)[1]-1]["q"]}}:
+														{{\App\Http\Controllers\PollPersonalDataController::QUESTIONS[explode('_',$key)[1]-1]["a"][$val]}}
+													@else
+														{{\App\Http\Controllers\PollPersonalDataController::QUESTIONS[explode('_',$key)[1]-1]["q"]}}:
+														ERR
+                                                    @endif
                                                 @else
                                                     {{$key}}:
                                                     {{$val}}
